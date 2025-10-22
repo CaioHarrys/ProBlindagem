@@ -1,0 +1,187 @@
+.header {
+    width: 100%;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+    position: relative;
+    min-height: 80px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+/* menu desktop */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.nav-links ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative; /* For positioning the underline and sparks */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #918c8c;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px; /* Space for the underline bar */
+}
+
+/* Underline bar */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3908ff;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Spark effect using multiple pseudo-elements */
+.nav-links li a::before {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    right: 0;
+    width: 4px;
+    height: 4px;
+    background-color: #3908ff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0s, transform 0.3s ease-in-out;
+    transform: translateX(0);
+}
+
+/* Additional spark for more dynamic effect */
+.nav-links li a > span.spark {
+    position: absolute;
+    bottom: 1px;
+    right: 0;
+    width: 3px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0s, transform 0.3s ease-in-out;
+    transform: translateX(0);
+}
+
+.nav-links li a:hover {
+    color: #ffffff;
+}
+
+.nav-links li a:hover::after {
+    width: 100%; /* Bar fills from left to right */
+}
+
+/* Spark animation on hover */
+.nav-links li a:hover::before {
+    opacity: 1;
+    transform: translateX(10px) translateY(-5px); /* Spark moves outward */
+    transition: opacity 0.1s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.nav-links li a:hover > span.spark {
+    opacity: 1;
+    transform: translateX(15px) translateY(-2px); /* Second spark with slight variation */
+    transition: opacity 0.1s ease-in-out, transform 0.35s ease-in-out;
+}
+
+/* botão hamburguer (mobile) */
+.menu-toggle {
+    display: none;
+    background: none;
+    margin: auto;
+    border: 0px;
+    font-size: 1.8rem;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ffffff;
+    z-index: 1100;
+}
+
+/* responsivo */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ff000000;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        z-index: 1000;
+    }
+
+    .nav-links.open {
+        display: block;
+        text-align: center;
+        animation: slideIn 0.4s ease-in-out;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Adjust hover effect for mobile (optional, as hover is less relevant) */
+    .nav-links li a::after {
+        transition: none; /* Disable hover animation on mobile for performance */
+    }
+
+    .nav-links li a::before,
+    .nav-links li a > span.spark {
+        display: none; /* Hide sparks on mobile for simplicity */
+    }
+}
+
+/* animação suave para dropdown */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

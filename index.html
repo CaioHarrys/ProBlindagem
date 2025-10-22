@@ -1,408 +1,490 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blindagem Pro | Proteção Invisível para Seu Celular</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blindagem Pro — Proteção Invisível</title>
+  <meta name="description" content="Blindagem de celular com película nanoquímica. Evite trincas, quedas e arranhões. Agende pelo WhatsApp." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
-    body {
-      background-color: #0b0b0b;
-      color: #fff;
-      overflow-x: hidden;
-      position: relative;
+    :root{
+      --bg:#060607;
+      --card:#0f0f12;
+      --muted:#bdbdbd;
+      --accent-1:#7b2ff7;
+      --accent-2:#9c6eff;
+      --glass: rgba(255,255,255,0.03);
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:linear-gradient(180deg,#050507 0%, #0b0710 60%);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
     }
 
-    /* Canvas de partículas */
+    /* PARTICLES CANVAS (background) */
     #particles {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      display:block;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 6%;
-      background: rgba(15, 15, 15, 0.9);
-      backdrop-filter: blur(12px);
-      position: fixed;
-      width: 100%;
-      z-index: 10;
+    /* LAYOUT */
+    .wrap{position:relative; z-index:1; max-width:var(--max-width); margin:0 auto; padding:28px 20px;}
+    header{display:flex; align-items:center; justify-content:space-between; gap:20px; padding:16px 0;}
+    .logo{font-weight:700; color:var(--accent-2); display:flex; align-items:center; gap:10px; font-size:1.05rem}
+    nav{display:flex; gap:18px; align-items:center}
+    nav a{color:var(--muted); text-decoration:none; font-weight:600; font-size:0.95rem}
+    nav a:hover{color:#fff; text-decoration:underline}
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:32px;
+      align-items:center;
+      padding:48px 0 28px;
+    }
+    .hero-title{font-size:2.4rem; line-height:1.05; margin-bottom:12px}
+    .hero-title strong{color:var(--accent-1); background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+    .hero-sub{color:var(--muted); margin-bottom:18px}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); border:0; color:#fff; padding:12px 18px; border-radius:999px;
+      font-weight:700; cursor:pointer; box-shadow:0 6px 24px rgba(124,56,255,0.16); transition:transform .16s ease, box-shadow .16s;
+      text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+    }
+    .btn:active{transform:translateY(1px)}
+    .ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--muted); padding:10px 16px; border-radius:12px;}
+
+    .hero-visual{display:flex; align-items:center; justify-content:center}
+    .phone{
+      width:360px; max-width:80%; border-radius:24px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:18px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.7), 0 0 40px rgba(124,56,255,0.06) inset;
+      transform:translateY(0); transition:transform .6s cubic-bezier(.2,.9,.3,1);
+    }
+    .phone img{width:100%; height:auto; display:block; border-radius:12px; filter:drop-shadow(0 12px 30px rgba(0,0,0,0.6));}
+
+    /* FEATURES */
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:22px}
+    .feature{background:var(--card); padding:18px; border-radius:14px; border:1px solid rgba(255,255,255,0.02)}
+    .feature h4{color:var(--accent-2); margin:0 0 8px; font-size:1rem}
+    .feature p{color:var(--muted); margin:0; font-size:0.95rem}
+
+    /* BEFORE/AFTER */
+    .ba-section{margin-top:56px; display:flex; gap:24px; align-items:center; flex-wrap:wrap}
+    .ba-card{flex:1; min-width:280px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:12px; border-radius:14px; border:1px solid rgba(255,255,255,0.02)}
+    .ba-frame{position:relative; overflow:hidden; border-radius:12px}
+    .ba-frame img{display:block; width:100%; height:auto; user-select:none}
+    /* slider control */
+    .ba-slider{position:relative; cursor:ew-resize; touch-action:none; height:360px; max-height:70vh}
+    .ba-overlay{position:absolute; inset:0; overflow:hidden}
+    .ba-overlay img{position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover}
+    .ba-handle{position:absolute; top:0; bottom:0; width:3px; left:50%; transform:translateX(-1.5px); background:linear-gradient(180deg, var(--accent-1), var(--accent-2)); box-shadow:0 0 18px rgba(156,110,255,0.95)}
+    .ba-dot{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:36px; height:36px; border-radius:50%; background:rgba(0,0,0,0.35); border:1px solid rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700}
+
+    /* TESTIMONIALS */
+    .testimonials{margin-top:44px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px}
+    .t-card{background:var(--card); padding:16px; border-radius:12px; border:1px solid rgba(255,255,255,0.02)}
+    .t-meta{display:flex; gap:12px; align-items:center; margin-bottom:10px}
+    .avatar{width:46px;height:46px;border-radius:50%; overflow:hidden; flex:0 0 46px}
+    .avatar img{width:100%; height:100%; object-fit:cover}
+    .t-name{font-weight:700; color:var(--accent-2)}
+    .t-role{color:var(--muted); font-size:0.85rem}
+
+    /* CTA & FOOTER */
+    .cta{margin:56px 0; padding:28px; border-radius:12px; background:linear-gradient(90deg, rgba(124,56,255,0.14), rgba(156,110,255,0.06)); display:flex; gap:20px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+    .footer{padding:28px 0; color:var(--muted); text-align:center; border-top:1px solid rgba(255,255,255,0.02); margin-top:28px}
+
+    /* RESPONSIVE */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr; text-align:center}
+      .hero-visual{order:-1}
+      .grid-3{grid-template-columns:repeat(1,1fr)}
     }
 
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #9c6eff;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      color: #ccc;
-      margin-left: 2rem;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    nav a:hover { color: #fff; }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 6rem 8%;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-text {
-      max-width: 50%;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-text h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .hero-text span { color: #9c6eff; }
-
-    .hero-text p {
-      margin: 1.2rem 0 2rem;
-      color: #bdbdbd;
-      font-size: 1.1rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.2rem;
-      background: linear-gradient(45deg, #7b2ff7, #9c6eff);
-      border-radius: 50px;
-      color: #fff;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-      box-shadow: 0 0 20px rgba(156, 110, 255, 0.4);
-    }
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(156, 110, 255, 0.7);
-    }
-
-    .hero img {
-      width: 420px;
-      animation: float 4s ease-in-out infinite;
-      z-index: 1;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
-    }
-
-    section {
-      padding: 6rem 8%;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .card {
-      background: #141414;
-      border-radius: 20px;
-      padding: 2rem;
-      border: 1px solid #242424;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #9c6eff;
-      box-shadow: 0 0 20px rgba(156, 110, 255, 0.2);
-    }
-
-    .card h3 {
-      color: #9c6eff;
-      margin-bottom: 1rem;
-    }
-
-    /* Seção Antes e Depois */
-    .before-after {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-      margin-top: 3rem;
-    }
-
-    .before-after img {
-      width: 320px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(156, 110, 255, 0.25);
-      transition: 0.3s;
-    }
-
-    .before-after img:hover {
-      transform: scale(1.05);
-    }
-
-    /* Depoimentos */
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .testimonial {
-      background: #141414;
-      border-radius: 15px;
-      padding: 2rem;
-      border: 1px solid #242424;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonial::before {
-      content: "“";
-      position: absolute;
-      font-size: 4rem;
-      color: rgba(156, 110, 255, 0.15);
-      top: 10px;
-      left: 20px;
-    }
-
-    .testimonial p {
-      color: #ccc;
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-
-    .testimonial h4 {
-      color: #9c6eff;
-      font-weight: 600;
-    }
-
-    .cta {
-      background: linear-gradient(45deg, #7b2ff7, #9c6eff);
-      padding: 4rem 8%;
-      border-radius: 20px;
-      margin: 4rem 8%;
-    }
-
-    .cta h2 { font-size: 2.2rem; color: #fff; }
-    .cta p { margin: 1rem 0 2rem; color: #f0f0f0; }
-
-    footer {
-      background: #0a0a0a;
-      text-align: center;
-      padding: 2rem;
-      color: #777;
-      border-top: 1px solid #1a1a1a;
-    }
-
-    @media (max-width: 850px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-text, .hero img {
-        max-width: 100%;
-      }
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none!important; animation:none!important}
     }
   </style>
 </head>
 <body>
 
-  <canvas id="particles"></canvas>
+  <!-- Canvas background for particles -->
+  <canvas id="particles" aria-hidden="true"></canvas>
 
-  <header>
-    <div class="logo">🔒 Blindagem Pro</div>
-    <nav>
-      <a href="#beneficios">Benefícios</a>
-      <a href="#antes-depois">Antes & Depois</a>
-      <a href="#depoimentos">Depoimentos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
+  <div class="wrap" id="top">
+    <header>
+      <div class="logo">🔒 Blindagem Pro</div>
+      <nav>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#antes-depois">Antes & Depois</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Proteja seu <span>Celular</span> com Tecnologia de Blindagem Invisível</h1>
-      <p>Evite quebras, trincas e danos. Nossa solução química cria uma camada protetora ultrarresistente no seu aparelho.</p>
-      <a href="#contato" class="btn">Quero Blindar Meu Celular</a>
-    </div>
-    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/modern-smartphone-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--device-mobile-phone-gadget-electronics-pack-illustrations-6489965.png" alt="Celular protegido">
-  </section>
+    <!-- HERO -->
+    <main style="padding-top:78px">
+      <section class="hero" id="hero">
+        <div>
+          <h1 class="hero-title">Blindagem invisível para seu <strong>celular</strong>: proteção que fala menor preço.</h1>
+          <p class="hero-sub">Camada nanoquímica que sela e fortalece seu vidro. Menos trincas, menos stress, mais vida útil.</p>
 
-  <section id="beneficios">
-    <h2>Por que escolher a Blindagem Pro?</h2>
-    <div class="features">
-      <div class="card">
-        <h3>💎 Resistência Extrema</h3>
-        <p>Protege contra quedas, riscos e impactos do dia a dia sem alterar a aparência do aparelho.</p>
-      </div>
-      <div class="card">
-        <h3>🧪 Tecnologia Nanoquímica</h3>
-        <p>Compostos avançados formam uma película invisível que sela o vidro do seu celular.</p>
-      </div>
-      <div class="card">
-        <h3>⚡ Aplicação Profissional</h3>
-        <p>Realizamos o processo de forma segura e precisa, com resultado imediato e duradouro.</p>
-      </div>
-    </div>
-  </section>
+          <div class="cta-row">
+            <a class="btn" id="whatsappBtn" href="https://wa.me/5599999999999?text=Olá!%20Quero%20blindar%20meu%20celular" rel="noopener" target="_blank">Agendar via WhatsApp</a>
+            <button class="ghost" id="learnBtn">Saiba como funciona</button>
+          </div>
 
-  <section id="antes-depois">
-    <h2>Antes e Depois da Blindagem</h2>
-    <div class="before-after">
-      <img src="https://images.unsplash.com/photo-1587140902901-8b53f26d58a6?auto=format&w=600&q=80" alt="Celular trincado">
-      <img src="https://images.unsplash.com/photo-1601933470095-190103a8b9bb?auto=format&w=600&q=80" alt="Celular protegido e novo">
-    </div>
-  </section>
+          <div class="grid-3" style="margin-top:18px">
+            <div class="feature"><h4>💎 Resistência</h4><p>Camada invisível com alta resistência a impacto e riscos.</p></div>
+            <div class="feature"><h4>🧪 Nanoquímica</h4><p>Processo aplicado por profissionais com secagem controlada.</p></div>
+            <div class="feature"><h4>⚡ Rápido</h4><p>Aplicação em poucos minutos — resultado imediato.</p></div>
+          </div>
+        </div>
 
-  <section id="depoimentos">
-    <h2>O que nossos clientes dizem</h2>
-    <div class="testimonials">
-      <div class="testimonial">
-        <p>"Deixei o celular cair no chão e nem arranhou! Sério, parece mágica. Atendimento top demais!"</p>
-        <h4>— Juliana Ferreira</h4>
-      </div>
-      <div class="testimonial">
-        <p>"Eu duvidei, mas o resultado é surreal. Vale cada centavo. Nunca mais fico sem essa blindagem."</p>
-        <h4>— Rafael Monteiro</h4>
-      </div>
-      <div class="testimonial">
-        <p>"A tela ficou até mais lisa, dá pra sentir que tá protegida. Atendimento rápido e profissional!"</p>
-        <h4>— Lucas Andrade</h4>
-      </div>
-    </div>
-  </section>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="phone" role="img" aria-label="Celular protegido">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='1200' viewBox='0 0 600 1200'%3E%3Crect width='600' height='1200' rx='60' fill='%230b0b0b'/%3E%3C/svg%3E" alt="" />
+            <!-- replace with your product mock if wanted -->
+          </div>
+        </div>
+      </section>
 
-  <section id="contato" class="cta">
-    <h2>Proteja seu celular hoje mesmo!</h2>
-    <p>Preencha seus dados e nossa equipe entrará em contato para agendar a blindagem do seu aparelho.</p>
-    <a href="https://wa.me/5599999999999?text=Olá! Quero blindar meu celular!" class="btn">Agendar no WhatsApp</a>
-  </section>
+      <!-- BENEFICIOS (ancora) -->
+      <section id="beneficios" style="margin-top:18px">
+        <h3 style="margin-bottom:12px">Por que escolher a Blindagem Pro</h3>
+        <p style="color:var(--muted); margin-bottom:16px">Proteção invisível que não altera touch nem aparência. Ideal para quem não quer capinha volumosa.</p>
+      </section>
 
-  <footer>
-    <p>© 2025 Blindagem Pro | Todos os direitos reservados</p>
-  </footer>
+      <!-- BEFORE & AFTER -->
+      <section id="antes-depois" aria-labelledby="antes-depois-title">
+        <h3 id="antes-depois-title" style="margin-bottom:12px">Antes e Depois</h3>
+        <p style="color:var(--muted); margin-bottom:18px">Arraste a barra para comparar — imagens ilustrativas (substitua pelos seus .webp reais).</p>
 
+        <div class="ba-section">
+          <div class="ba-card">
+            <div class="ba-frame ba-slider" id="ba1" data-loaded="false" aria-label="Antes e Depois 1">
+              <!-- bottom image (antes) -->
+              <img data-src="before.webp" alt="Antes - celular com trinca" loading="lazy" class="ba-base" />
+              <!-- overlay (depois) -->
+              <div class="ba-overlay" style="width:50%;">
+                <img data-src="after.webp" alt="Depois - celular protegido" loading="lazy" class="ba-top" />
+              </div>
+              <div class="ba-handle" aria-hidden="true"></div>
+              <div class="ba-dot" aria-hidden="true">⇆</div>
+            </div>
+          </div>
+
+          <!-- small gallery for additional examples -->
+          <div style="flex:0 0 320px; display:flex; flex-direction:column; gap:12px">
+            <div class="ba-card" style="padding:8px">
+              <img data-src="before2.webp" alt="Antes 2" loading="lazy" style="width:100%; border-radius:10px; display:block" />
+            </div>
+            <div class="ba-card" style="padding:8px">
+              <img data-src="after2.webp" alt="Depois 2" loading="lazy" style="width:100%; border-radius:10px; display:block" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="depoimentos" style="margin-top:28px">
+        <h3>Depoimentos</h3>
+        <p style="color:var(--muted); margin-bottom:14px">Clientes reais felizes — exemplos fictícios prontos para substituir.</p>
+
+        <div class="testimonials" id="testimonials">
+          <div class="t-card">
+            <div class="t-meta">
+              <div class="avatar"><img data-src="avatar1.webp" alt="Juliana Ferreira" loading="lazy"></div>
+              <div>
+                <div class="t-name">Juliana Ferreira</div>
+                <div class="t-role">Designer — SP</div>
+              </div>
+            </div>
+            <p style="color:var(--muted)">"O celular caiu do bolso e nada aconteceu. Atendimento rápido e resultado impecável."</p>
+          </div>
+
+          <div class="t-card">
+            <div class="t-meta">
+              <div class="avatar"><img data-src="avatar2.webp" alt="Rafael Monteiro" loading="lazy"></div>
+              <div>
+                <div class="t-name">Rafael Monteiro</div>
+                <div class="t-role">Programador — RJ</div>
+              </div>
+            </div>
+            <p style="color:var(--muted)">"Valeu cada centavo — parecia mágica. Tela com toque intacto e zero marcas."</p>
+          </div>
+
+          <div class="t-card">
+            <div class="t-meta">
+              <div class="avatar"><img data-src="avatar3.webp" alt="Lucas Andrade" loading="lazy"></div>
+              <div>
+                <div class="t-name">Lucas Andrade</div>
+                <div class="t-role">Estudante — MG</div>
+              </div>
+            </div>
+            <p style="color:var(--muted)">"Rápido e profissional. Meu aparelho ficou com cara de novo e protegido."</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="contato" style="margin-top:36px">
+        <div class="cta">
+          <div>
+            <strong style="display:block; font-size:1.1rem">Pronto pra blindar seu celular?</strong>
+            <span style="color:var(--muted)">Agende um horário pelo WhatsApp e ganhe diagnóstico gratuito.</span>
+          </div>
+          <div style="display:flex; gap:12px; align-items:center">
+            <a class="btn" href="https://wa.me/5599999999999?text=Olá!%20Quero%20agendar%20a%20blindagem" target="_blank" rel="noopener">Agendar WhatsApp</a>
+            <a class="ghost" href="tel:+559999999999">Ligar agora</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        © <span id="year"></span> Blindagem Pro — Todos os direitos reservados
+      </footer>
+    </main>
+  </div>
+
+  <!-- SCRIPTS (defer-like: placed at end) -->
   <script>
-    // Efeito suave de rolagem
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', e => {
-        e.preventDefault();
-        const target = document.querySelector(anchor.getAttribute('href'));
-        target.scrollIntoView({ behavior: 'smooth' });
-      });
+    /* ========== UTIL: small helpers ========== */
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ========== LAZY LOAD IMAGES (IntersectionObserver) ========== */
+    const lazyObserver = new IntersectionObserver((entries, obs) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        const img = e.target;
+        const src = img.dataset.src;
+        if (src) {
+          img.src = src;
+          img.removeAttribute('data-src');
+          img.addEventListener('load', ()=> img.style.opacity = 1, {once:true});
+        }
+        obs.unobserve(img);
+      }
+    }, {rootMargin: '200px 0px', threshold: 0.01});
+
+    $$('img[data-src]').forEach(img => {
+      img.style.opacity = 0;
+      lazyObserver.observe(img);
     });
 
-    // Partículas simples com Canvas
-    const canvas = document.getElementById("particles");
-    const ctx = canvas.getContext("2d");
-    let particlesArray;
+    /* ========== BEFORE/AFTER SLIDER (lightweight) ========== */
+    function enableBaSlider(el){
+      const overlay = el.querySelector('.ba-overlay');
+      const handle = el.querySelector('.ba-handle');
+      const dot = el.querySelector('.ba-dot');
+      const topImg = overlay.querySelector('img');
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+      // ensure images will be lazy-loaded by observer
+      const baseImg = el.querySelector('.ba-base');
+      if (baseImg && baseImg.dataset.src) lazyObserver.observe(baseImg);
+      if (topImg && topImg.dataset.src) lazyObserver.observe(topImg);
 
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      init();
+      // set width based on pointer
+      let rect, dragging = false;
+
+      function update(x){
+        const w = Math.max(0, Math.min(rect.width, x - rect.left));
+        const perc = (w / rect.width) * 100;
+        overlay.style.width = perc + '%';
+        handle.style.left = perc + '%';
+        dot.style.left = perc + '%';
+      }
+
+      function start(e){
+        rect = el.getBoundingClientRect();
+        dragging = true;
+        el.classList.add('dragging');
+        update((e.touches ? e.touches[0].clientX : e.clientX));
+      }
+      function move(e){
+        if(!dragging) return;
+        update((e.touches ? e.touches[0].clientX : e.clientX));
+      }
+      function end(){
+        dragging = false;
+        el.classList.remove('dragging');
+      }
+
+      // mouse
+      el.addEventListener('mousedown', start);
+      window.addEventListener('mousemove', move);
+      window.addEventListener('mouseup', end);
+      // touch
+      el.addEventListener('touchstart', start, {passive:true});
+      window.addEventListener('touchmove', move, {passive:true});
+      window.addEventListener('touchend', end);
+
+      // initialize center
+      function initCenter(){
+        overlay.style.width = '50%';
+        handle.style.left = '50%';
+        dot.style.left = '50%';
+      }
+      initCenter();
+
+      // mark loaded
+      el.dataset.loaded = "true";
+    }
+
+    // init all BA sliders when section enters viewport (lazy)
+    const baSection = document.getElementById('antes-depois');
+    const baObserver = new IntersectionObserver((entries, obs)=>{
+      for(const e of entries){
+        if(e.isIntersecting){
+          $$('#antes-depois .ba-slider').forEach(enableBaSlider);
+          obs.unobserve(e.target);
+        }
+      }
+    }, {rootMargin:'200px 0px', threshold:0.15});
+    baObserver.observe(baSection);
+
+
+    /* ========== TESTIMONIAL IMAGES lazy (they have data-src) already observed above ========== */
+
+    /* ========== SMOOTH SCROLL anchors ========== */
+    $$('nav a, .ghost, .btn').forEach(a=>{
+      if(!a.hash && a.href && a.getAttribute('href').startsWith('#')) {
+        a.addEventListener('click', e=>{ e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'}); });
+      }
     });
 
-    class Particle {
-      constructor(x, y, size, speedX, speedY) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.speedX = speedX;
-        this.speedY = speedY;
-      }
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
+    // learnBtn scroll
+    document.getElementById('learnBtn').addEventListener('click', ()=> document.getElementById('beneficios').scrollIntoView({behavior:'smooth'}));
 
-        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
-        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+    /* ========== PARTICLES (optimized canvas) ========== */
+    (function(){
+      const canvas = document.getElementById('particles');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let w = canvas.width = innerWidth;
+      let h = canvas.height = innerHeight;
+
+      // config tuned for perf
+      const PARTICLES = Math.max(28, Math.floor((w*h)/80000)); // adaptive but small
+      const MAX_DIST = 120;
+      const particles = [];
+      let lastTime = 0;
+      const FPS = 30;
+      const FRAME_DURATION = 1000 / FPS;
+      let running = true;
+      let visible = true;
+
+      function rand(min,max){return Math.random()*(max-min)+min}
+
+      function Particle(){
+        this.x = rand(0,w);
+        this.y = rand(0,h);
+        this.r = rand(0.6,1.8);
+        this.vx = rand(-0.25,0.25);
+        this.vy = rand(-0.25,0.25);
+        this.alpha = rand(0.35,0.85);
       }
-      draw() {
-        ctx.fillStyle = "rgba(156,110,255,0.7)";
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = "#9c6eff";
+      Particle.prototype.move = function(dt){
+        this.x += this.vx * (dt/16);
+        this.y += this.vy * (dt/16);
+        if(this.x < -10) this.x = w+10;
+        if(this.x > w+10) this.x = -10;
+        if(this.y < -10) this.y = h+10;
+        if(this.y > h+10) this.y = -10;
+      }
+      Particle.prototype.draw = function(){
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.closePath();
+        ctx.fillStyle = 'rgba(156,110,255,'+this.alpha+')';
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = '#9c6eff';
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI*2);
         ctx.fill();
       }
-    }
 
-    function init() {
-      particlesArray = [];
-      const numberOfParticles = 80;
-      for (let i = 0; i < numberOfParticles; i++) {
-        const size = Math.random() * 2 + 1;
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const speedX = (Math.random() - 0.5) * 1.5;
-        const speedY = (Math.random() - 0.5) * 1.5;
-        particlesArray.push(new Particle(x, y, size, speedX, speedY));
+      function init(){
+        particles.length = 0;
+        w = canvas.width = innerWidth;
+        h = canvas.height = innerHeight;
+        for(let i=0;i<PARTICLES;i++) particles.push(new Particle());
       }
-    }
 
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particlesArray.forEach(particle => {
-        particle.update();
-        particle.draw();
-      });
-      connectParticles();
-      requestAnimationFrame(animate);
-    }
-
-    function connectParticles() {
-      for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a; b < particlesArray.length; b++) {
-          const dx = particlesArray[a].x - particlesArray[b].x;
-          const dy = particlesArray[a].y - particlesArray[b].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < 100) {
-            ctx.strokeStyle = "rgba(156,110,255,0.1)";
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-            ctx.stroke();
-            ctx.closePath();
+      function connect(){
+        for(let i=0;i<particles.length;i++){
+          for(let j=i+1;j<particles.length;j++){
+            const a = particles[i], b = particles[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if(dist < MAX_DIST){
+              ctx.strokeStyle = 'rgba(156,110,255,'+ (0.09*(1 - dist/MAX_DIST)) +')';
+              ctx.lineWidth = 0.9;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.stroke();
+            }
           }
         }
       }
-    }
 
-    init();
-    animate();
+      function frame(ts){
+        if(!running) return;
+        requestAnimationFrame(frame);
+        if(ts - lastTime < FRAME_DURATION) return;
+        const dt = ts - lastTime;
+        lastTime = ts;
+
+        ctx.clearRect(0,0,w,h);
+        for(const p of particles){
+          p.move(dt);
+          p.draw();
+        }
+        connect();
+      }
+
+      // visibility based pausing to save CPU
+      const visObs = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.intersectionRatio>0) { visible = true; running = true; lastTime = performance.now(); requestAnimationFrame(frame); }
+          else { visible = false; running = false; }
+        });
+      }, {root:null, threshold: 0.01});
+      visObs.observe(document.getElementById('top'));
+
+      // pause when tab not visible
+      document.addEventListener('visibilitychange', ()=>{
+        if(document.hidden){ running = false; } else { running = true; lastTime = performance.now(); requestAnimationFrame(frame); }
+      });
+
+      // resize throttled
+      let resizeTO;
+      addEventListener('resize', ()=> {
+        clearTimeout(resizeTO);
+        resizeTO = setTimeout(()=> init(), 250);
+      });
+
+      // init
+      init();
+      lastTime = performance.now();
+      requestAnimationFrame(frame);
+    })();
+
+    /* ========== SMALL PERF TIPS to user (console) ========== */
+    console.info('Landing carregada — imagens lazy-load, canvas otimizado (FPS cap), BA slider e observers ativos.');
+
   </script>
-
 </body>
 </html>
