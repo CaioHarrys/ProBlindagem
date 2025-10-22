@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blindagem Pro | Proteção Invisível para Seu Celular</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+    body {
+      background-color: #0b0b0b;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Canvas de partículas */
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 6%;
+      background: rgba(15, 15, 15, 0.9);
+      backdrop-filter: blur(12px);
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #9c6eff;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #ccc;
+      margin-left: 2rem;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #fff; }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6rem 8%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text {
+      max-width: 50%;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-text h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero-text span { color: #9c6eff; }
+
+    .hero-text p {
+      margin: 1.2rem 0 2rem;
+      color: #bdbdbd;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.2rem;
+      background: linear-gradient(45deg, #7b2ff7, #9c6eff);
+      border-radius: 50px;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 0 20px rgba(156, 110, 255, 0.4);
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(156, 110, 255, 0.7);
+    }
+
+    .hero img {
+      width: 420px;
+      animation: float 4s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    section {
+      padding: 6rem 8%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: #141414;
+      border-radius: 20px;
+      padding: 2rem;
+      border: 1px solid #242424;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #9c6eff;
+      box-shadow: 0 0 20px rgba(156, 110, 255, 0.2);
+    }
+
+    .card h3 {
+      color: #9c6eff;
+      margin-bottom: 1rem;
+    }
+
+    /* Seção Antes e Depois */
+    .before-after {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+
+    .before-after img {
+      width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(156, 110, 255, 0.25);
+      transition: 0.3s;
+    }
+
+    .before-after img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Depoimentos */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial {
+      background: #141414;
+      border-radius: 15px;
+      padding: 2rem;
+      border: 1px solid #242424;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial::before {
+      content: "“";
+      position: absolute;
+      font-size: 4rem;
+      color: rgba(156, 110, 255, 0.15);
+      top: 10px;
+      left: 20px;
+    }
+
+    .testimonial p {
+      color: #ccc;
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial h4 {
+      color: #9c6eff;
+      font-weight: 600;
+    }
+
+    .cta {
+      background: linear-gradient(45deg, #7b2ff7, #9c6eff);
+      padding: 4rem 8%;
+      border-radius: 20px;
+      margin: 4rem 8%;
+    }
+
+    .cta h2 { font-size: 2.2rem; color: #fff; }
+    .cta p { margin: 1rem 0 2rem; color: #f0f0f0; }
+
+    footer {
+      background: #0a0a0a;
+      text-align: center;
+      padding: 2rem;
+      color: #777;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text, .hero img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="particles"></canvas>
+
+  <header>
+    <div class="logo">🔒 Blindagem Pro</div>
+    <nav>
+      <a href="#beneficios">Benefícios</a>
+      <a href="#antes-depois">Antes & Depois</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Proteja seu <span>Celular</span> com Tecnologia de Blindagem Invisível</h1>
+      <p>Evite quebras, trincas e danos. Nossa solução química cria uma camada protetora ultrarresistente no seu aparelho.</p>
+      <a href="#contato" class="btn">Quero Blindar Meu Celular</a>
+    </div>
+    <img src="https://cdn3d.iconscout.com/3d/premium/thumb/modern-smartphone-3d-illustration-download-in-png-blend-fbx-gltf-file-formats--device-mobile-phone-gadget-electronics-pack-illustrations-6489965.png" alt="Celular protegido">
+  </section>
+
+  <section id="beneficios">
+    <h2>Por que escolher a Blindagem Pro?</h2>
+    <div class="features">
+      <div class="card">
+        <h3>💎 Resistência Extrema</h3>
+        <p>Protege contra quedas, riscos e impactos do dia a dia sem alterar a aparência do aparelho.</p>
+      </div>
+      <div class="card">
+        <h3>🧪 Tecnologia Nanoquímica</h3>
+        <p>Compostos avançados formam uma película invisível que sela o vidro do seu celular.</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Aplicação Profissional</h3>
+        <p>Realizamos o processo de forma segura e precisa, com resultado imediato e duradouro.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="antes-depois">
+    <h2>Antes e Depois da Blindagem</h2>
+    <div class="before-after">
+      <img src="https://images.unsplash.com/photo-1587140902901-8b53f26d58a6?auto=format&w=600&q=80" alt="Celular trincado">
+      <img src="https://images.unsplash.com/photo-1601933470095-190103a8b9bb?auto=format&w=600&q=80" alt="Celular protegido e novo">
+    </div>
+  </section>
+
+  <section id="depoimentos">
+    <h2>O que nossos clientes dizem</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"Deixei o celular cair no chão e nem arranhou! Sério, parece mágica. Atendimento top demais!"</p>
+        <h4>— Juliana Ferreira</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Eu duvidei, mas o resultado é surreal. Vale cada centavo. Nunca mais fico sem essa blindagem."</p>
+        <h4>— Rafael Monteiro</h4>
+      </div>
+      <div class="testimonial">
+        <p>"A tela ficou até mais lisa, dá pra sentir que tá protegida. Atendimento rápido e profissional!"</p>
+        <h4>— Lucas Andrade</h4>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="cta">
+    <h2>Proteja seu celular hoje mesmo!</h2>
+    <p>Preencha seus dados e nossa equipe entrará em contato para agendar a blindagem do seu aparelho.</p>
+    <a href="https://wa.me/5599999999999?text=Olá! Quero blindar meu celular!" class="btn">Agendar no WhatsApp</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Blindagem Pro | Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    // Efeito suave de rolagem
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Partículas simples com Canvas
+    const canvas = document.getElementById("particles");
+    const ctx = canvas.getContext("2d");
+    let particlesArray;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      init();
+    });
+
+    class Particle {
+      constructor(x, y, size, speedX, speedY) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.speedX = speedX;
+        this.speedY = speedY;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x > canvas.width || this.x < 0) this.speedX *= -1;
+        if (this.y > canvas.height || this.y < 0) this.speedY *= -1;
+      }
+      draw() {
+        ctx.fillStyle = "rgba(156,110,255,0.7)";
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = "#9c6eff";
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      particlesArray = [];
+      const numberOfParticles = 80;
+      for (let i = 0; i < numberOfParticles; i++) {
+        const size = Math.random() * 2 + 1;
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const speedX = (Math.random() - 0.5) * 1.5;
+        const speedY = (Math.random() - 0.5) * 1.5;
+        particlesArray.push(new Particle(x, y, size, speedX, speedY));
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(particle => {
+        particle.update();
+        particle.draw();
+      });
+      connectParticles();
+      requestAnimationFrame(animate);
+    }
+
+    function connectParticles() {
+      for (let a = 0; a < particlesArray.length; a++) {
+        for (let b = a; b < particlesArray.length; b++) {
+          const dx = particlesArray[a].x - particlesArray[b].x;
+          const dy = particlesArray[a].y - particlesArray[b].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 100) {
+            ctx.strokeStyle = "rgba(156,110,255,0.1)";
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+            ctx.stroke();
+            ctx.closePath();
+          }
+        }
+      }
+    }
+
+    init();
+    animate();
+  </script>
+
+</body>
+</html>
