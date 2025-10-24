@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../assets/css/Header.css"; 
-import logo from "../assets/logo/Logo.png"; // ajuste o caminho se necessário
+import logo from "../assets/logo/LogoSemFundoNoba.png"; // ajuste o caminho se necessário
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const Header = () => {
