@@ -1,0 +1,139 @@
+/* CSS DOS CONTAINERS | PAI & FILHOS  */
+.container {
+    display: flex;
+    max-width: 1200px;
+    padding: 0px;
+    flex-wrap: wrap;
+    /* Ensure wrapping for smaller screens */
+    justify-content: center;
+}
+
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+
+.hero-right {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Conteudo */
+
+.hero-left-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Texto */
+.hero-left-content h1 {
+    font-size: 2rem;
+    line-height: normal;
+    font-weight: 700;
+    color: white;
+    text-align: left;
+}
+
+.hero-left-content p {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: left;
+    line-height: normal;
+    font-weight: 500;
+}
+
+.span-color {
+    background: linear-gradient(to right, blue, lightblue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Botões */
+.Button-row {
+    display: flex;
+    gap: 15px;
+}
+
+/* Fileira de Cards */
+.Card-Row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+    margin-top: 20px;
+    color: rgb(34, 34, 206);
+}
+
+.Card-hero {
+    width: 150px;
+    height: auto;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+}
+.Card{
+    background-color: #0f0f12;
+    padding: 10px;
+}
+
+.Card-Title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.Card-Paragraph {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #333;
+}
+
+/* Responsividade Tablet */
+@media (max-width: 1024px) {
+
+    /* Tablet responsiveness */
+    .hero-left,
+    .hero-right {
+        width: 100%;
+        /* Stack elements vertically */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        padding: 0 20px;
+        /* Add some padding for smaller screens */
+    }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+
+    /* Mobile responsiveness */
+    .hero-left,
+    .hero-right {
+        width: 100%;
+        /* Full width for mobile */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        flex-direction: column;
+        /* Stack container items vertically */
+        padding: 0 10px;
+        /* Reduce padding for smaller screens */
+    }
+}
+
+.img-hero-right {
+    width: 33%;
+    height: auto;
+}
