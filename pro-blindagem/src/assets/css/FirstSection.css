@@ -322,6 +322,22 @@
         padding: 0 10px;
         /* Reduce padding for smaller screens */
     }
+
+    .hero-left-content h1 {
+        font-size: 2rem;
+        /* Adjust heading size for mobile */
+        text-align: center;
+    }
+    .hero-left-content > p {
+        font-size: 0.9rem;
+        /* Adjust paragraph size for mobile */
+        text-align: center !important;
+    }
+    .Button-row{
+        flex-direction: column;
+        /* Stack buttons vertically on mobile */
+        align-items: center;
+    }
 }
 
 .img-hero-right {
