@@ -9,21 +9,21 @@ import Quimica from "../../assets/icon/quimica.svg";
 const FirstSection = () => {
   const CardRow = [
     {
-      id : 1,
+      id: 1,
       title: "Resistência",
       icon: Diamante,
       paragraph: "Camada invisível com alta resistência a impacto e riscos.",
     },
     {
-      id : 2,
-      title: "Rápido",
-      icon: Raio,
+      id: 2,
+      title: "Nanoquímica",
+      icon: Quimica,
       paragraph: "Processo aplicado por profissionais com secagem controlada.",
     },
     {
-      id : 3,
+      id: 3,
       title: "Rápido",
-      icon: Quimica,
+      icon: Raio,
       paragraph:
         "Especialmente formulado para máxima adesão ao vidro do celular.",
     },
