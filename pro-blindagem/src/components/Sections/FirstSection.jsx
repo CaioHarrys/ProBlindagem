@@ -5,6 +5,7 @@ import Wpp from "../../assets/icon/whatsapp.png";
 import Diamante from "../../assets/icon/diamante.svg";
 import Raio from "../../assets/icon/raio.svg";
 import Quimica from "../../assets/icon/quimica.svg";
+import Iphones from "../../assets/imagens/Iphones/phonerow.png";
 
 const FirstSection = () => {
   const CardRow = [
@@ -53,25 +54,30 @@ const FirstSection = () => {
             </div>
             <div className="Card-Row">
               {CardRow.map((card) => (
-                <div className="Card" key={card.id}>
-                  <div className="Card-Title">
-                    <img
-                      className="IconCard"
-                      src={card.icon}
-                      alt={`icone de ${card.title.toLowerCase()}`}
-                    />
-                    <h2>{card.title}</h2>
+                <div className="Card cards" key={card.id}>
+                  <div className="bg">
+                    <div className="Card-Title">
+                      <img
+                        className="IconCard"
+                        src={card.icon}
+                        alt={`icone de ${card.title.toLowerCase()}`}
+                      />
+                      <h2>{card.title}</h2>
+                    </div>
+                    <div className="Card-Paragraph">
+                      <p>{card.paragraph}</p>
+                    </div>
                   </div>
-                  <div className="Card-Paragraph">
-                    <p>{card.paragraph}</p>
-                  </div>
+                  <div className={`blob blob-${card.id}`}></div>
                 </div>
               ))}
             </div>
           </div>
         </div>
         <div className="hero-right">
-          <img className="img-hero-right" src={IphonePro} alt="Iphone Pro" />
+          <div className="phone-box">
+            <img className="img-hero-right" src={IphonePro} alt="Iphone Pro" />
+          </div>
         </div>
       </div>
     </section>

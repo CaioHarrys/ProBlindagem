@@ -11,11 +11,12 @@
 .hero-left {
     display: flex;
     flex-direction: column;
-    width: 35%;
+    justify-content: center;
+    width: 50%;
 }
 
 .hero-right {
-    width: 35%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,18 +32,18 @@
 
 /* Texto */
 .hero-left-content h1 {
-    font-size: 2rem;
-    line-height: normal;
+    font-size: 3rem;
+    line-height: 1.2;
     font-weight: 700;
     color: white;
     text-align: left;
 }
 
 .hero-left-content p {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: 1rem;
+    color: #c6bebe;
     text-align: left;
-    line-height: normal;
+    line-height: 1.6;
     font-weight: 500;
 }
 
@@ -160,11 +161,22 @@
 }
 
 /* Cards */
-.IconCard{
+.IconCard {
     width: 23px;
     height: 23px;
     display: flex;
     flex-shrink: initial;
+    animation: iconFloat 3s ease-in-out infinite alternate;
+}
+
+@keyframes iconFloat {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    100% {
+        transform: translateY(-3px) rotate(5deg);
+    }
 }
 
 @keyframes greentopBubbles {
@@ -238,16 +250,17 @@
 }
 
 .Card {
-    background-color: #0f0f12;
+    /* background-color: #0f0f12;
     padding: 13px;
-    border-radius: 7px;
+    border-radius: 7px; */
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* 
 .Card:hover {
     box-shadow: 0 0 5px 2px rgba(65, 68, 255, 0.635), 0 0 30px 8px rgba(38, 0, 255, 0.6);
     transform: scale(1.05);
-}
+} */
 
 .Card-Title {
     display: flex;
@@ -256,12 +269,20 @@
     font-weight: 600;
     margin-bottom: 10px;
     gap: 5px;
+    padding: 18px 0px 0px 18px;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.Card:hover .Card-Title {
+    color: gray;
 }
 
 .Card-Paragraph {
     font-size: 0.85rem;
     font-weight: 400;
-    color: #333;
+    color: #e81c1c;
+    padding: 5px 0px 0px 20px;
 }
 
 /* Responsividade Tablet */
@@ -304,6 +325,184 @@
 }
 
 .img-hero-right {
-    width: 33%;
-    height: auto;
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.6));
 }
+
+.phone-box {
+    width: 300px;
+    /* Diminuindo o tamanho do celular */
+    height: auto;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    padding: 18px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 40px rgba(124, 56, 255, 0.06) inset;
+    transform: translateY(0);
+    transition: transform .6s cubic-bezier(.2, .9, .3, 1);
+    margin: 0 auto;
+    /* Centralizando a div */
+}
+
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    /* Garantindo que os elementos fiquem em coluna */
+    align-items: center;
+    /* Centralizando os itens horizontalmente */
+    gap: 10px;
+    /* Espaçamento entre a imagem e a div pai */
+}
+
+/* .phone-box img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.6));
+} */
+
+/* TESTE DE CARD */
+/* From Uiverse.io by dy
+lanharriscameron */
+.cards {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    border-radius: 14px;
+    z-index: 1111;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 2, 32, 0.773);
+}
+
+/* Responsividade Tablet */
+@media (max-width: 1024px) {
+    .cards {
+        width: 180px;
+        height: 230px;
+    }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .cards {
+        width: 150px;
+        height: 200px;
+    }
+}
+
+.bg {
+    position: absolute;
+    /* top: 5px;
+    left: 5px; */
+    width: 98%;
+    height: 98%;
+    z-index: 2;
+    background: rgb(6, 3, 19);
+    backdrop-filter: blur(2px);
+    border-radius: 14px;
+    overflow: hidden;
+
+}
+
+.blob {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #6f00ff;
+    opacity: 1;
+    filter: blur(1px);
+    /* Removida a animação padrão aqui; agora é aplicada por classe específica */
+}
+
+/* Animações personalizadas para cada blob */
+.blob-1 {
+    animation: blob-bounce 5s infinite ease;
+}
+
+.blob-2 {
+    animation: blob-bounce2 5s infinite ease;
+}
+
+.blob-3 {
+    animation: blob-bounce3 5s infinite ease;
+}
+
+/* Keyframes originais para Card 1 (inicia superior esquerdo) */
+@keyframes blob-bounce {
+    0% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+
+    25% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+    }
+
+    50% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+    }
+
+    75% {
+        transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+    }
+
+    100% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+}
+
+/* Keyframes para Card 3 (inicia superior direito) */
+@keyframes blob-bounce3 {
+    0% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+    }
+
+    25% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+    }
+
+    50% {
+        transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+    }
+
+    75% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+    }
+}
+
+/* Keyframes para Card 2 (inicia inferior direito) */
+@keyframes blob-bounce2 {
+    0% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+    }
+
+    25% {
+        transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+    }
+
+    50% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+
+    75% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+    }
+}
+
+/* Removidos os .blob2 e .blob3 não utilizados */
