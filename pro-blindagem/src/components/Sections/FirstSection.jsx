@@ -1,8 +1,33 @@
 import React from "react";
 import "../../assets/css/FirstSection.css";
 import IphonePro from "../../assets/imagens/celular-pro-blindagem.png";
+import Wpp from "../../assets/icon/whatsapp.png";
+import Diamante from "../../assets/icon/diamante.svg";
+import Raio from "../../assets/icon/raio.svg";
+import Quimica from "../../assets/icon/quimica.svg";
 
 const FirstSection = () => {
+  const CardRow = [
+    {
+      id : 1,
+      title: "Resistência",
+      icon: Diamante,
+      paragraph: "Camada invisível com alta resistência a impacto e riscos.",
+    },
+    {
+      id : 2,
+      title: "Rápido",
+      icon: Raio,
+      paragraph: "Processo aplicado por profissionais com secagem controlada.",
+    },
+    {
+      id : 3,
+      title: "Rápido",
+      icon: Quimica,
+      paragraph:
+        "Especialmente formulado para máxima adesão ao vidro do celular.",
+    },
+  ];
   return (
     <section className="first-section">
       <div className="container">
@@ -18,31 +43,30 @@ const FirstSection = () => {
               menos stress, mais vida útil.
             </p>
             <div className="Button-row">
-              <button className="btn-primary">Saiba Mais</button>
-              <button className="btn-secondary">Contato</button>
+              <button className="cssbuttons-io-button">
+                Agendar via WhatsApp
+                <div className="icon">
+                  <img src={Wpp} alt="WhatsApp Icon" height="24" width="24" />
+                </div>
+              </button>
+              <button className="button">Saiba Mais</button>
             </div>
             <div className="Card-Row">
-              <div className="Card">
-                <div className="Card-Title">
-                  <h2>+10K</h2>
+              {CardRow.map((card) => (
+                <div className="Card" key={card.id}>
+                  <div className="Card-Title">
+                    <img
+                      className="IconCard"
+                      src={card.icon}
+                      alt={`icone de ${card.title.toLowerCase()}`}
+                    />
+                    <h2>{card.title}</h2>
+                  </div>
+                  <div className="Card-Paragraph">
+                    <p>{card.paragraph}</p>
+                  </div>
                 </div>
-                <div className="Card-Paragraph"></div>
-                <p>Clientes Satisfeitos</p>
-              </div>
-              <div className="Card">
-                <div className="Card-Title">
-                  <h2>+10K</h2>
-                </div>
-                <div className="Card-Paragraph"></div>
-                <p>Clientes Satisfeitos</p>
-              </div>
-              <div className="Card">
-                <div className="Card-Title">
-                  <h2>+10K</h2>
-                </div>
-                <div className="Card-Paragraph"></div>
-                <p>Clientes Satisfeitos</p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
