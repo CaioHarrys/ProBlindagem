@@ -1,113 +1,107 @@
-/* Custom properties for theme consistency */
-:root {
-    --primary-blue: #3b82f6;
-    --primary-purple: #a855f7;
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* From Uiverse.io by Fcodingx */
+.card {
+  width: 25% !important;
+  height: 120px;
+  padding: 0.5rem;
+  background: rgba(198, 198, 198, 0.34);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+  border-left: 2px rgba(255, 255, 255, 0.545) outset;
+  box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
+  transform: skewX(10deg);
+  transition: .4s;
+  overflow: hidden;
+  color: white;
+}
+
+.card:hover {
+  height: 254px;
+  transform: skew(0deg);
+}
+
+.align {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-self: flex-start;
+}
+
+.red {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff605c;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+}
+
+.yellow {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffbd44;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+}
+
+.green {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00ca4e;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+}
+
+.card h1 {
+  text-align: center;
+  margin: 1.3rem;
+  color: rgb(218, 244, 237);
+  text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+}
+.img-layer{
+  width: 100%;
+}
+.second-hero-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+font-size: 1rem !important;
+}
+.paragraph-second-section{
+  text-align: center;
+  margin-top: 1rem;
+  color: white;
+  width: 100%;
+  font-size: 15px;
+}
+.hero-2-content{
+
+  width: 100%;
+}
+.Title{
+  font-size: 2rem !important;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .card {
+    width: 80% !important;
+    margin: auto;
+    padding: 20px;
   }
-  
-  /* Section container */
-  .second-section {
-    padding: 4rem 0; /* py-16 */
-    background: linear-gradient(to right, #eff6ff, #f3e8ff); /* from-blue-50 to-purple-100 */
-  }
-  
-  /* Inner container */
-  .second-section .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem; /* px-4 */
-  }
-  
-  /* Heading */
-  .second-section h2 {
-    font-size: 1.875rem; /* text-3xl */
-    font-weight: 700; /* font-bold */
+  .Title{
+    font-size: 1.5rem !important;
+    color: white;
     text-align: center;
-    margin-bottom: 2rem; /* mb-8 */
-    color: #1f2937; /* Neutral dark for readability */
+    width: 100%;
   }
-  
-  /* Stats grid */
-  .second-section .stats-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Default: single column */
-    gap: 1.5rem; /* gap-6 */
-  }
-  
-  @media (min-width: 768px) {
-    .second-section .stats-grid {
-      grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    .second-section .stats-grid {
-      grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
-    }
-  }
-  
-  /* Stat card */
-  .second-section .stat-card {
+  .paragraph-second-section{
     text-align: center;
-    padding: 1.5rem; /* p-6 */
-    background-color: white;
-    border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: var(--shadow-lg);
-    transition: var(--transition);
+    margin-top: 1rem;
+    color: white;
+    width: 100%;
+    font-size: 10px;
   }
-  
-  .second-section .stat-card:hover {
-    transform: scale(1.05); /* hover:scale-105 */
-  }
-  
-  /* Icon styling */
-  .second-section .stat-icon {
-    display: block;
-    margin: 0 auto 1rem; /* mx-auto mb-4 */
-    font-size: 2.5rem; /* text-4xl (adjust if using SVG/icons) */
-    color: var(--primary-blue); /* text-blue-600 */
-  }
-  
-  /* Stat label */
-  .second-section .stat-label {
-    font-size: 1.25rem; /* text-xl */
-    font-weight: 600; /* font-semibold */
-    margin-bottom: 0.5rem;
-    color: #374151;
-  }
-  
-  /* Stat value */
-  .second-section .stat-value {
-    font-size: 1.5rem; /* text-2xl */
-    font-weight: 700; /* font-bold */
-    color: var(--primary-blue);
-  }
-  
-  /* Counter animation (for react-countup) - optional smooth fade-in */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .second-section .stat-card {
-    animation: fadeInUp 0.6s ease-out forwards;
-    opacity: 0;
-  }
-  
-  .second-section .stat-card:nth-child(1) { animation-delay: 0.1s; }
-  .second-section .stat-card:nth-child(2) { animation-delay: 0.2s; }
-  .second-section .stat-card:nth-child(3) { animation-delay: 0.3s; }
-  .second-section .stat-card:nth-child(4) { animation-delay: 0.4s; }
-  
-  /* Ensure icons from react-icons render properly */
-  .second-section svg {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
+}
