@@ -5,7 +5,7 @@ import Wpp from "../../assets/icon/whatsapp.png";
 import Diamante from "../../assets/icon/diamante.svg";
 import Raio from "../../assets/icon/raio.svg";
 import Quimica from "../../assets/icon/quimica.svg";
-import Iphones from "../../assets/imagens/Iphones/phonerow.png";
+import Broken from "../../assets/imagens/Iphones/brokenNew.png";
 
 const FirstSection = () => {
   const CardRow = [
@@ -76,7 +76,7 @@ const FirstSection = () => {
         </div>
         <div className="hero-right">
           <div className="phone-box">
-            <img className="img-hero-right" src={IphonePro} alt="Iphone Pro" />
+            <img className="img-hero-right" src={Broken} alt="Iphone Pro" />
           </div>
         </div>
       </div>

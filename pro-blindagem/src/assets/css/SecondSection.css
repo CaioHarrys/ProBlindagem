@@ -1,0 +1,113 @@
+/* Custom properties for theme consistency */
+:root {
+    --primary-blue: #3b82f6;
+    --primary-purple: #a855f7;
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Section container */
+  .second-section {
+    padding: 4rem 0; /* py-16 */
+    background: linear-gradient(to right, #eff6ff, #f3e8ff); /* from-blue-50 to-purple-100 */
+  }
+  
+  /* Inner container */
+  .second-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem; /* px-4 */
+  }
+  
+  /* Heading */
+  .second-section h2 {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700; /* font-bold */
+    text-align: center;
+    margin-bottom: 2rem; /* mb-8 */
+    color: #1f2937; /* Neutral dark for readability */
+  }
+  
+  /* Stats grid */
+  .second-section .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default: single column */
+    gap: 1.5rem; /* gap-6 */
+  }
+  
+  @media (min-width: 768px) {
+    .second-section .stats-grid {
+      grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .second-section .stats-grid {
+      grid-template-columns: repeat(4, 1fr); /* lg:grid-cols-4 */
+    }
+  }
+  
+  /* Stat card */
+  .second-section .stat-card {
+    text-align: center;
+    padding: 1.5rem; /* p-6 */
+    background-color: white;
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+  }
+  
+  .second-section .stat-card:hover {
+    transform: scale(1.05); /* hover:scale-105 */
+  }
+  
+  /* Icon styling */
+  .second-section .stat-icon {
+    display: block;
+    margin: 0 auto 1rem; /* mx-auto mb-4 */
+    font-size: 2.5rem; /* text-4xl (adjust if using SVG/icons) */
+    color: var(--primary-blue); /* text-blue-600 */
+  }
+  
+  /* Stat label */
+  .second-section .stat-label {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 0.5rem;
+    color: #374151;
+  }
+  
+  /* Stat value */
+  .second-section .stat-value {
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 700; /* font-bold */
+    color: var(--primary-blue);
+  }
+  
+  /* Counter animation (for react-countup) - optional smooth fade-in */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .second-section .stat-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .second-section .stat-card:nth-child(1) { animation-delay: 0.1s; }
+  .second-section .stat-card:nth-child(2) { animation-delay: 0.2s; }
+  .second-section .stat-card:nth-child(3) { animation-delay: 0.3s; }
+  .second-section .stat-card:nth-child(4) { animation-delay: 0.4s; }
+  
+  /* Ensure icons from react-icons render properly */
+  .second-section svg {
+    width: 2.5rem;
+    height: 2.5rem;
+  }

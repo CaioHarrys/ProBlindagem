@@ -2,4 +2,5 @@
     margin-top: 13vw;
     display: flex;
     flex-shrink: initial;
+    flex-direction: column;
 }

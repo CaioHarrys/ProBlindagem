@@ -6,6 +6,7 @@
     flex-wrap: wrap;
     /* Ensure wrapping for smaller screens */
     justify-content: center;
+    margin-bottom: 5vw;
 }
 
 .hero-left {
@@ -301,11 +302,19 @@
         padding: 0 20px;
         /* Add some padding for smaller screens */
     }
+    .phone-box{
+        margin-top: 5vw !important;
+        width: 350px !important;
+    }
 }
 
 /* Responsividade Mobile */
 @media (max-width: 768px) {
 
+    .phone-box{
+        width: 300px !important;
+        margin-top: 4vw !important;
+    }
     /* Mobile responsiveness */
     .hero-left,
     .hero-right {
@@ -348,7 +357,7 @@
 }
 
 .phone-box {
-    width: 300px;
+    width: 450px;
     /* Diminuindo o tamanho do celular */
     height: auto;
     border-radius: 24px;
