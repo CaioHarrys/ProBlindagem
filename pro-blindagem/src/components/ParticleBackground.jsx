@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import '../assets/css/ParticleBackground.css';
+import React, { useEffect, useRef } from "react";
+import "../assets/css/ParticleBackground.css";
 
 const ParticleBackground = () => {
   const canvasRef = useRef(null);
@@ -7,7 +7,7 @@ const ParticleBackground = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     let w;
     let h;
 
@@ -46,7 +46,7 @@ const ParticleBackground = () => {
       ctx.beginPath();
       ctx.fillStyle = `rgba(156, 110, 255, ${this.alpha})`;
       ctx.shadowBlur = 8;
-      ctx.shadowColor = '#9c6eff';
+      ctx.shadowColor = "#9c6eff";
       ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
       ctx.fill();
     };
@@ -60,7 +60,9 @@ const ParticleBackground = () => {
             dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < MAX_DIST) {
-            ctx.strokeStyle = `rgba(156, 110, 255, ${0.09 * (1 - dist / MAX_DIST)})`;
+            ctx.strokeStyle = `rgba(156, 110, 255, ${
+              0.09 * (1 - dist / MAX_DIST)
+            })`;
             ctx.lineWidth = 0.9;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -72,9 +74,12 @@ const ParticleBackground = () => {
     }
 
     function init() {
-      const PARTICLES = Math.max(28, Math.floor((canvas.clientWidth * canvas.clientHeight) / 80000));
+      const PARTICLES = Math.max(
+        28,
+        Math.floor((canvas.clientWidth * canvas.clientHeight) / 80000)
+      );
       particles.length = 0;
-      w = canvas.width = canvas.clientWidth;  // Mudado para clientWidth/Height
+      w = canvas.width = canvas.clientWidth; // Mudado para clientWidth/Height
       h = canvas.height = canvas.clientHeight;
       for (let i = 0; i < PARTICLES; i++) particles.push(new Particle());
     }
@@ -109,7 +114,7 @@ const ParticleBackground = () => {
           }
         });
       },
-      { root: null, threshold: 0 }  // Mudado para 0, para sempre rodar se qualquer parte visível
+      { root: null, threshold: 0 } // Mudado para 0, para sempre rodar se qualquer parte visível
     );
     visObs.observe(canvas);
 
@@ -123,7 +128,7 @@ const ParticleBackground = () => {
         requestAnimationFrame(frame);
       }
     };
-    document.addEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     // Resize handling (para window resize)
     let resizeTO;
@@ -131,7 +136,7 @@ const ParticleBackground = () => {
       clearTimeout(resizeTO);
       resizeTO = setTimeout(() => init(), 250);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Novo: ResizeObserver para detectar mudanças na altura do body (conteúdo dinâmico)
     const resizeObserver = new ResizeObserver(handleResize);
@@ -144,10 +149,10 @@ const ParticleBackground = () => {
 
     // Cleanup
     return () => {
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-      window.removeEventListener('resize', handleResize);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("resize", handleResize);
       visObs.disconnect();
-      resizeObserver.disconnect();  // Adicionado
+      resizeObserver.disconnect(); // Adicionado
       running = false;
     };
   }, []);

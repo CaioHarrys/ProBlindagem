@@ -43,7 +43,8 @@
 }
 
 .nav-links li {
-    position: relative; /* For positioning the underline and sparks */
+    position: relative;
+    /* For positioning the underline and sparks */
 }
 
 .nav-links li a {
@@ -53,7 +54,8 @@
     transition: color 0.3s ease;
     position: relative;
     display: inline-block;
-    padding-bottom: 4px; /* Space for the underline bar */
+    padding-bottom: 4px;
+    /* Space for the underline bar */
 }
 
 /* Underline bar */
@@ -84,7 +86,7 @@
 }
 
 /* Additional spark for more dynamic effect */
-.nav-links li a > span.spark {
+.nav-links li a>span.spark {
     position: absolute;
     bottom: 1px;
     right: 0;
@@ -102,19 +104,22 @@
 }
 
 .nav-links li a:hover::after {
-    width: 100%; /* Bar fills from left to right */
+    width: 100%;
+    /* Bar fills from left to right */
 }
 
 /* Spark animation on hover */
 .nav-links li a:hover::before {
     opacity: 1;
-    transform: translateX(10px) translateY(-5px); /* Spark moves outward */
+    transform: translateX(10px) translateY(-5px);
+    /* Spark moves outward */
     transition: opacity 0.1s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.nav-links li a:hover > span.spark {
+.nav-links li a:hover>span.spark {
     opacity: 1;
-    transform: translateX(15px) translateY(-2px); /* Second spark with slight variation */
+    transform: translateX(15px) translateY(-2px);
+    /* Second spark with slight variation */
     transition: opacity 0.1s ease-in-out, transform 0.35s ease-in-out;
 }
 
@@ -140,6 +145,7 @@
         margin-bottom: 5vw;
         position: relative;
     }
+
     .nav-links {
         display: none;
         position: absolute;
@@ -147,7 +153,7 @@
         left: 0;
         width: 100%;
         background-color: #170332;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.75);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
         border-radius: 20px;
         z-index: 1000;
     }
@@ -170,12 +176,14 @@
 
     /* Adjust hover effect for mobile (optional, as hover is less relevant) */
     .nav-links li a::after {
-        transition: none; /* Disable hover animation on mobile for performance */
+        transition: none;
+        /* Disable hover animation on mobile for performance */
     }
 
     .nav-links li a::before,
-    .nav-links li a > span.spark {
-        display: none; /* Hide sparks on mobile for simplicity */
+    .nav-links li a>span.spark {
+        display: none;
+        /* Hide sparks on mobile for simplicity */
     }
 }
 
@@ -185,6 +193,7 @@
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

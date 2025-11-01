@@ -58,46 +58,54 @@
   color: rgb(218, 244, 237);
   text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
 }
-.img-layer{
+
+.img-layer {
   width: 100%;
 }
-.second-hero-content{
+
+.second-hero-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-font-size: 1rem !important;
+  font-size: 1rem !important;
 }
-.paragraph-second-section{
+
+.paragraph-second-section {
   text-align: center;
   margin-top: 1rem;
   color: white;
   width: 100%;
   font-size: 15px;
 }
-.hero-2-content{
+
+.hero-2-content {
 
   width: 100%;
 }
-.Title{
+
+.Title {
   font-size: 2rem !important;
   color: white;
   text-align: center;
   width: 100%;
 }
+
 @media (max-width: 768px) {
   .card {
     width: 80% !important;
     margin: auto;
     padding: 20px;
   }
-  .Title{
+
+  .Title {
     font-size: 1.5rem !important;
     color: white;
     text-align: center;
     width: 100%;
   }
-  .paragraph-second-section{
+
+  .paragraph-second-section {
     text-align: center;
     margin-top: 1rem;
     color: white;

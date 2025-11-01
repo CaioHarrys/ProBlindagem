@@ -47,9 +47,9 @@ const SaibaCards = () => {
               alt={`Icone do passo ${card.id}`}
             />
           </div>
-
           <h1>{card.title}</h1>
-          <p className="description">{card.description}</p> {/* Adicionei className para controle extra */}
+          <p className="description">{card.description}</p>{" "}
+          {/* Adicionei className para controle extra */}
         </div>
       ))}
     </div>

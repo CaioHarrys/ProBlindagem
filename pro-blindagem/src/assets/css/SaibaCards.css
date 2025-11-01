@@ -50,9 +50,27 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 
 .card-icon {
     width: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .Saiba-mais-cards-container {
+        flex-direction: row;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 35% !important;
+    }
+
+    .card-icon {
+        width: 40px;
+    }
+
 }

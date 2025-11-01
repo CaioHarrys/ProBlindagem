@@ -302,7 +302,8 @@
         padding: 0 20px;
         /* Add some padding for smaller screens */
     }
-    .phone-box{
+
+    .phone-box {
         margin-top: 5vw !important;
         width: 350px !important;
     }
@@ -311,10 +312,11 @@
 /* Responsividade Mobile */
 @media (max-width: 768px) {
 
-    .phone-box{
+    .phone-box {
         width: 300px !important;
         margin-top: 4vw !important;
     }
+
     /* Mobile responsiveness */
     .hero-left,
     .hero-right {
@@ -337,12 +339,14 @@
         /* Adjust heading size for mobile */
         text-align: center;
     }
-    .hero-left-content > p {
+
+    .hero-left-content>p {
         font-size: 0.9rem;
         /* Adjust paragraph size for mobile */
         text-align: center !important;
     }
-    .Button-row{
+
+    .Button-row {
         flex-direction: column;
         /* Stack buttons vertically on mobile */
         align-items: center;
