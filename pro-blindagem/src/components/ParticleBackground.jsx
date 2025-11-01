@@ -8,11 +8,10 @@ const ParticleBackground = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    let w = (canvas.width = window.innerWidth);
-    let h = (canvas.height = window.innerHeight);
+    let w;
+    let h;
 
     // Particle configuration
-    const PARTICLES = Math.max(28, Math.floor((w * h) / 80000));
     const MAX_DIST = 120;
     const particles = [];
     let lastTime = 0;
@@ -73,9 +72,10 @@ const ParticleBackground = () => {
     }
 
     function init() {
+      const PARTICLES = Math.max(28, Math.floor((canvas.clientWidth * canvas.clientHeight) / 80000));
       particles.length = 0;
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
+      w = canvas.width = canvas.clientWidth;  // Mudado para clientWidth/Height
+      h = canvas.height = canvas.clientHeight;
       for (let i = 0; i < PARTICLES; i++) particles.push(new Particle());
     }
 
@@ -94,7 +94,7 @@ const ParticleBackground = () => {
       connect();
     }
 
-    // Visibility-based pausing
+    // Visibility-based pausing (ajustado para threshold: 0)
     const visObs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -109,7 +109,7 @@ const ParticleBackground = () => {
           }
         });
       },
-      { root: null, threshold: 0.01 }
+      { root: null, threshold: 0 }  // Mudado para 0, para sempre rodar se qualquer parte visível
     );
     visObs.observe(canvas);
 
@@ -125,13 +125,17 @@ const ParticleBackground = () => {
     };
     document.addEventListener('visibilitychange', handleVisibilityChange);
 
-    // Resize handling
+    // Resize handling (para window resize)
     let resizeTO;
     const handleResize = () => {
       clearTimeout(resizeTO);
       resizeTO = setTimeout(() => init(), 250);
     };
     window.addEventListener('resize', handleResize);
+
+    // Novo: ResizeObserver para detectar mudanças na altura do body (conteúdo dinâmico)
+    const resizeObserver = new ResizeObserver(handleResize);
+    resizeObserver.observe(document.body);
 
     // Initialize
     init();
@@ -143,6 +147,7 @@ const ParticleBackground = () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('resize', handleResize);
       visObs.disconnect();
+      resizeObserver.disconnect();  // Adicionado
       running = false;
     };
   }, []);
