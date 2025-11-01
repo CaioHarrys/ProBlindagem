@@ -39,16 +39,8 @@ const SaibaCards = () => {
   return (
     <div className="container Saiba-mais-cards-container">
       {cards.map((card) => (
-        <div
-          className="card"
-          key={card.id}
-          style={{
-            transform: `skewX(${card.id}deg)`, // Inclinação progressiva: 1deg, 2deg, 3deg, 4deg
-          }}
-        >
+        <div className="card" key={card.id}>
           <div className="align">
-            {" "}
-            {/* Mudei de class para className */}
             <img
               className="card-icon"
               src={card.icon}
@@ -57,7 +49,7 @@ const SaibaCards = () => {
           </div>
 
           <h1>{card.title}</h1>
-          <p>{card.description}</p>
+          <p className="description">{card.description}</p> {/* Adicionei className para controle extra */}
         </div>
       ))}
     </div>
