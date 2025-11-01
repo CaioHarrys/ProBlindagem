@@ -1,24 +1,22 @@
 /* From Uiverse.io by Fcodingx */
 .card {
-    width: 190px;
-    height: 180px;
+    width: 33%;
+    height: 160px;
     padding: 0.5rem;
     margin-top: 5vw;
     background: linear-gradient(145deg, #1750ad38, #0a142b00);
     border-radius: 8px;
     backdrop-filter: blur(500px);
-    border-bottom: 2.5px solid rgb(51, 0, 255);
-    border-left: 2.5px rgb(51, 0, 255) outset;
+    border-bottom: 2.5px solid rgba(51, 0, 255, 0.613);
+    border-left: 2.5px rgba(51, 0, 255, 0.565) outset;
     box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.5);
-    /* Removido: transform: skewX(1deg); -- agora é inline no JSX */
     transition: .4s;
     overflow: hidden;
     color: #d0d1d3;
-    
+
 }
 
 .card:hover {
-    height: 300px;
     transform: skew(10deg);
     /* Mantido: sobrescreve a inclinação base no hover */
 
@@ -33,10 +31,19 @@
 }
 
 .card h1 {
+    font-size: 20px;
     text-align: center;
     margin: 1rem;
     color: rgb(218, 244, 237);
     text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+}
+
+.card p {
+    font-size: 17px;
+    text-align: center;
+    margin: 0.5rem;
+    color: #d0d1d3;
+    text-shadow: -5px 2px 5px rgba(0, 0, 0, 0.473);
 }
 
 .Saiba-mais-cards-container {
