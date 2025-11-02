@@ -1,6 +1,5 @@
 import React from "react";
-import "../../assets/css/FirstSection.css";
-import IphonePro from "../../assets/imagens/celular-pro-blindagem.png";
+import "../../assets/css/FirstSection.css"; 
 import Wpp from "../../assets/icon/whatsapp.png";
 import Diamante from "../../assets/icon/diamante.svg";
 import Raio from "../../assets/icon/raio.svg";
