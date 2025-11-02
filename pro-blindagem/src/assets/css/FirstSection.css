@@ -429,118 +429,121 @@ lanharriscameron */
         align-items: center;
         gap: 1.2rem;
     }
+
     .blob {
         width: 250px !important;
     }
 
-    .bg {
-        position: absolute;
-        /* top: 5px;
+}
+
+.bg {
+    position: absolute;
+    /* top: 5px;
     left: 5px; */
-        width: 98%;
-        height: 98%;
-        z-index: 2;
-        background: rgb(6, 3, 19);
-        backdrop-filter: blur(2px);
-        border-radius: 14px;
-        overflow: hidden;
+    width: 98%;
+    height: 98%;
+    z-index: 2;
+    background: rgb(6, 3, 19);
+    backdrop-filter: blur(2px);
+    border-radius: 14px;
+    overflow: hidden;
 
+}
+
+.blob {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #6f00ff;
+    opacity: 1;
+    filter: blur(1px);
+    /* Removida a animação padrão aqui; agora é aplicada por classe específica */
+}
+
+/* Animações personalizadas para cada blob */
+.blob-1 {
+    animation: blob-bounce 5s infinite ease;
+}
+
+.blob-2 {
+    animation: blob-bounce2 5s infinite ease;
+}
+
+.blob-3 {
+    animation: blob-bounce3 5s infinite ease;
+}
+
+/* Keyframes originais para Card 1 (inicia superior esquerdo) */
+@keyframes blob-bounce {
+    0% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
     }
 
-    .blob {
-        position: absolute;
-        z-index: 1;
-        top: 50%;
-        left: 50%;
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        background-color: #6f00ff;
-        opacity: 1;
-        filter: blur(1px);
-        /* Removida a animação padrão aqui; agora é aplicada por classe específica */
+    25% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
     }
 
-    /* Animações personalizadas para cada blob */
-    .blob-1 {
-        animation: blob-bounce 5s infinite ease;
+    50% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
     }
 
-    .blob-2 {
-        animation: blob-bounce2 5s infinite ease;
+    75% {
+        transform: translate(-100%, -100%) translate3d(0, 100%, 0);
     }
 
-    .blob-3 {
-        animation: blob-bounce3 5s infinite ease;
+    100% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+}
+
+/* Keyframes para Card 3 (inicia superior direito) */
+@keyframes blob-bounce3 {
+    0% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
     }
 
-    /* Keyframes originais para Card 1 (inicia superior esquerdo) */
-    @keyframes blob-bounce {
-        0% {
-            transform: translate(-100%, -100%) translate3d(0, 0, 0);
-        }
-
-        25% {
-            transform: translate(-100%, -100%) translate3d(100%, 0, 0);
-        }
-
-        50% {
-            transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
-        }
-
-        75% {
-            transform: translate(-100%, -100%) translate3d(0, 100%, 0);
-        }
-
-        100% {
-            transform: translate(-100%, -100%) translate3d(0, 0, 0);
-        }
+    25% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
     }
 
-    /* Keyframes para Card 3 (inicia superior direito) */
-    @keyframes blob-bounce3 {
-        0% {
-            transform: translate(-100%, -100%) translate3d(100%, 0, 0);
-        }
-
-        25% {
-            transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
-        }
-
-        50% {
-            transform: translate(-100%, -100%) translate3d(0, 100%, 0);
-        }
-
-        75% {
-            transform: translate(-100%, -100%) translate3d(0, 0, 0);
-        }
-
-        100% {
-            transform: translate(-100%, -100%) translate3d(100%, 0, 0);
-        }
+    50% {
+        transform: translate(-100%, -100%) translate3d(0, 100%, 0);
     }
 
-    /* Keyframes para Card 2 (inicia inferior direito) */
-    @keyframes blob-bounce2 {
-        0% {
-            transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
-        }
-
-        25% {
-            transform: translate(-100%, -100%) translate3d(0, 100%, 0);
-        }
-
-        50% {
-            transform: translate(-100%, -100%) translate3d(0, 0, 0);
-        }
-
-        75% {
-            transform: translate(-100%, -100%) translate3d(100%, 0, 0);
-        }
-
-        100% {
-            transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
-        }
+    75% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
     }
 
-    /* Removidos os .blob2 e .blob3 não utilizados */
+    100% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+    }
+}
+
+/* Keyframes para Card 2 (inicia inferior direito) */
+@keyframes blob-bounce2 {
+    0% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+    }
+
+    25% {
+        transform: translate(-100%, -100%) translate3d(0, 100%, 0);
+    }
+
+    50% {
+        transform: translate(-100%, -100%) translate3d(0, 0, 0);
+    }
+
+    75% {
+        transform: translate(-100%, -100%) translate3d(100%, 0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, -100%) translate3d(100%, 100%, 0);
+    }
+}
+
+/* Removidos os .blob2 e .blob3 não utilizados */
