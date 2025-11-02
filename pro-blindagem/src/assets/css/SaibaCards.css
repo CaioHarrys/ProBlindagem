@@ -1,7 +1,7 @@
 /* From Uiverse.io by Fcodingx */
 .card {
     width: 33%;
-    height: 160px;
+    height: 130px;
     padding: 0.5rem;
     margin-top: 5vw;
     background: linear-gradient(145deg, #1750ad38, #0a142b00);
@@ -10,16 +10,21 @@
     border-bottom: 2.5px solid rgba(51, 0, 255, 0.613);
     border-left: 2.5px rgba(51, 0, 255, 0.565) outset;
     box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.5);
-    transition: .7s;
+    transition: .7s; /* Transição geral (pra hover) */
     overflow: hidden;
     color: #d0d1d3;
-
+    cursor: pointer; /* Indica clicável em todos os devices */
 }
 
 .card:hover {
     transform: skew(10deg);
-    /* Mantido: sobrescreve a inclinação base no hover */
+    /* Mantido: sobrescreve a inclinação base no hover (desktop) */
+}
 
+/* Nova classe para expansão suave */
+.card.expanded {
+    max-height: 300px; /* Expansão suave no desktop também, se quiser */
+    transition: max-height 0.5s ease; /* Suavidade aqui também */
 }
 
 .align {
@@ -32,10 +37,22 @@
 
 .card h1 {
     font-size: 20px;
-    text-align: center;
-    margin: 1rem;
+    text-align: left;
+    margin: 0rem;
+    margin-left: 4px !important;
     color: rgb(218, 244, 237);
     text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+}
+
+.toggle-icon {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgba(51, 0, 255, 0.8); /* Cor neon pro ícone +/− */
+    transition: transform 0.3s ease;
+}
+
+.card.expanded .toggle-icon {
+    transform: rotate(45deg); /* Opcional: roda o ícone na expansão */
 }
 
 .card p {
@@ -55,7 +72,7 @@
 }
 
 .card-icon {
-    width: 50px;
+    width: 40px;
 }
 
 @media screen and (max-width: 768px) {
@@ -67,11 +84,34 @@
 
     .card {
         width: 100% !important;
-        height: 106px;
+        height: 106px; /* Altura inicial compacta */
+        transition: max-height 0.5s ease, padding 0.3s ease; /* Transição suave pro mobile */
+        overflow: hidden; /* Esconde conteúdo extra durante animação */
     }
 
-    .card:hover {
+    /* Expansão suave no mobile via clique */
+    .card.expanded {
+        max-height: 250px !important; /* Expande o suficiente pra descrição (ajuste se preciso) */
         height: auto !important;
+        padding: 1rem; /* Aumenta padding pra mais espaço */
+    }
+
+    /* Descrição escondida inicialmente no mobile */
+    .card p.description {
+        opacity: 0;
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        transition: opacity 0.4s ease, max-height 0.5s ease, margin 0.3s ease;
+    }
+
+    /* Mostra descrição na expansão */
+    .card.expanded p.description {
+        opacity: 1;
+        max-height: 120px; /* Altura máxima da descrição (suficiente pro texto) */
+        margin: 0.5rem;
+        padding: 0.5rem 0;
     }
 
     .card-icon {
@@ -83,4 +123,10 @@
         margin: 0;
     }
 
+
+    /* Remove hover no mobile, prioriza clique */
+    .card:hover {
+        transform: none; /* Sem skew no mobile */
+        height: auto !important; /* Mas mantém expansão se hover rolar por acidente */
+    }
 }
