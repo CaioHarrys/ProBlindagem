@@ -1,7 +1,6 @@
 /* From Uiverse.io by Fcodingx */
 .card {
-    width: 33%;
-    height: 130px;
+    width: 33% !important;
     padding: 0.5rem;
     margin-top: 5vw;
     background: linear-gradient(145deg, #1750ad38, #0a142b00);
@@ -9,22 +8,20 @@
     backdrop-filter: blur(500px);
     border-bottom: 2.5px solid rgba(51, 0, 255, 0.613);
     border-left: 2.5px rgba(51, 0, 255, 0.565) outset;
-    box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.5);
-    transition: .7s; /* Transição geral (pra hover) */
+    max-height: 130px;
+    /* transition: max-height 0.5s ease, padding 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; */
     overflow: hidden;
     color: #d0d1d3;
-    cursor: pointer; /* Indica clicável em todos os devices */
-}
-
-.card:hover {
-    transform: skew(10deg);
-    /* Mantido: sobrescreve a inclinação base no hover (desktop) */
+    cursor: pointer;
+    /* Indica clicável em todos os devices */
 }
 
 /* Nova classe para expansão suave */
 .card.expanded {
-    max-height: 300px; /* Expansão suave no desktop também, se quiser */
-    transition: max-height 0.5s ease; /* Suavidade aqui também */
+    max-height: fit-content;
+    /* Expansão suave */
+    padding: 1rem;
+    /* Aumenta padding na expansão */
 }
 
 .align {
@@ -41,26 +38,43 @@
     margin: 0rem;
     margin-left: 4px !important;
     color: rgb(218, 244, 237);
-    text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+    /* text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573); */
 }
 
 .toggle-icon {
     font-size: 18px;
     font-weight: bold;
-    color: rgba(51, 0, 255, 0.8); /* Cor neon pro ícone +/− */
+    color: rgba(51, 0, 255, 0.8);
+    /* Cor neon pro ícone +/− */
     transition: transform 0.3s ease;
 }
 
 .card.expanded .toggle-icon {
-    transform: rotate(45deg); /* Opcional: roda o ícone na expansão */
+    transform: rotate(45deg);
+    /* Opcional: roda o ícone na expansão */
 }
 
-.card p {
+/* Descrição escondida inicialmente */
+.card p.description {
     font-size: 17px;
     text-align: center;
-    margin: 0.5rem;
+    opacity: 0;
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     color: #d0d1d3;
     text-shadow: -5px 2px 5px rgba(0, 0, 0, 0.473);
+    transition: opacity 0.4s ease, max-height 0.5s ease, margin 0.3s ease, padding 0.3s ease;
+}
+
+/* Mostra descrição na expansão */
+.card.expanded p.description {
+    opacity: 1;
+    max-height: 120px;
+    /* Altura máxima da descrição (suficiente pro texto) */
+    margin: 0.5rem;
+    padding: 0.5rem 0;
 }
 
 .Saiba-mais-cards-container {
@@ -75,6 +89,12 @@
     width: 40px;
 }
 
+@media (hover: hover) {
+    .card:not(.expanded):hover {
+        box-shadow: 0px 0px 44px -32px #2C1DFF,0px 10px 32px -3px #1C3FFD;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .Saiba-mais-cards-container {
         flex-direction: row;
@@ -84,34 +104,14 @@
 
     .card {
         width: 100% !important;
-        height: 106px; /* Altura inicial compacta */
-        transition: max-height 0.5s ease, padding 0.3s ease; /* Transição suave pro mobile */
-        overflow: hidden; /* Esconde conteúdo extra durante animação */
+        max-height: 106px;
+        /* Altura inicial compacta no mobile */
     }
 
-    /* Expansão suave no mobile via clique */
+    /* Expansão suave no mobile */
     .card.expanded {
-        max-height: 250px !important; /* Expande o suficiente pra descrição (ajuste se preciso) */
-        height: auto !important;
-        padding: 1rem; /* Aumenta padding pra mais espaço */
-    }
-
-    /* Descrição escondida inicialmente no mobile */
-    .card p.description {
-        opacity: 0;
-        max-height: 0;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        transition: opacity 0.4s ease, max-height 0.5s ease, margin 0.3s ease;
-    }
-
-    /* Mostra descrição na expansão */
-    .card.expanded p.description {
-        opacity: 1;
-        max-height: 120px; /* Altura máxima da descrição (suficiente pro texto) */
-        margin: 0.5rem;
-        padding: 0.5rem 0;
+        max-height: fit-content;
+        /* Expande o suficiente pra descrição (ajuste se preciso) */
     }
 
     .card-icon {
@@ -121,12 +121,5 @@
     .card h1 {
         padding: 0;
         margin: 0;
-    }
-
-
-    /* Remove hover no mobile, prioriza clique */
-    .card:hover {
-        transform: none; /* Sem skew no mobile */
-        height: auto !important; /* Mas mantém expansão se hover rolar por acidente */
     }
 }

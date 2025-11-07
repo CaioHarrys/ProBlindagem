@@ -1,4 +1,4 @@
-import React, { useState } from "react"; // Adicionei useState
+import React, { useState } from "react";
 import "../assets/css/SaibaCards.css";
 import NumberOne from "../assets/icon/numero-1.png";
 import NumberTwo from "../assets/icon/numero-2.png";
