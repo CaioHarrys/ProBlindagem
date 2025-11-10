@@ -94,7 +94,7 @@
 @media (max-width: 768px) {
 
   .img-layer {
-    width: 380px;
+    width: 100%;
   }
   .card {
     margin: auto;
