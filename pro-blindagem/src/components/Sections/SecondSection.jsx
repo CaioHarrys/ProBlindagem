@@ -22,7 +22,9 @@ const SecondSection = () => {
             </p>
           </div>
           <SaibaCards />
-          <img className="img-layer" src={Layers} alt="" />
+          <div className="phone-box-2">
+            <img className="img-layer" src={Layers} alt="" />
+          </div>
         </div>
       </div>
     </section>

@@ -1,3 +1,17 @@
+.phone-box-2 {
+    width: 100% !important;
+    /* Diminuindo o tamanho do celular */
+    height: auto !important;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    padding: 0px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 40px rgba(124, 56, 255, 0.06) inset;
+    transform: translateY(0);
+    transition: transform .6s cubic-bezier(.2, .9, .3, 1);
+    margin: 0em 0em 10em 0em;
+    /* Centralizando a div */
+}
+
 /* CSS DOS CONTAINERS | PAI & FILHOS  */
 .container {
     display: flex;
@@ -307,6 +321,11 @@
         margin-top: 5vw !important;
         width: 350px !important;
     }
+
+    .phone-box-2 {
+        margin-top: 5vw !important;
+        width: 150px !important;
+    }
 }
 
 /* Responsividade Mobile */
@@ -382,6 +401,19 @@
     /* Centralizando a div */
 }
 
+.phone-box-2 {
+    width: fit-content !important;
+    /* Diminuindo o tamanho do celular */
+    height: auto !important;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    padding: 0px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.514), 0 0 40px rgba(124, 56, 255, 0.06) inset;
+    transform: translateY(0);
+    transition: transform .6s cubic-bezier(.2, .9, .3, 1);
+    margin: 0em 0em 10em 0em;
+    /* Centralizando a div */
+}
+
 .hero-right {
     display: flex;
     flex-direction: column;
@@ -392,12 +424,12 @@
     /* Espaçamento entre a imagem e a div pai */
 }
 
-/* .phone-box img {
+.phone-box img {
     width: 100%;
     display: block;
     border-radius: 12px;
-    filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.6));
-} */
+    filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.197));
+}
 
 /* TESTE DE CARD */
 /* From Uiverse.io by dy

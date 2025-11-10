@@ -60,7 +60,7 @@
 }
 
 .img-layer {
-  width: 73%;
+  width: 550px;
 }
 
 .second-hero-content {
@@ -92,6 +92,10 @@
 }
 
 @media (max-width: 768px) {
+
+  .img-layer {
+    width: 380px;
+  }
   .card {
     margin: auto;
     padding: 20px;
