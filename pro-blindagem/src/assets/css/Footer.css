@@ -1,0 +1,101 @@
+/* CSS de Alto Nível (Com Alterações Solicitadas) */
+
+.footer-espacial {
+    /* MUDANÇAS: Fundo semi-transparente e efeito de vidro fosco/espelhado */
+    background-color: rgba(13, 26, 38, 0.7); /* Azul Escuro Profundo com 70% de opacidade */
+    backdrop-filter: blur(5px); /* Efeito de vidro fosco/espelhado */
+    -webkit-backdrop-filter: blur(5px); /* Suporte para Webkit */
+
+    color: #c0c0c0;
+    padding: 20px 40px;
+    font-family: 'Space Mono', monospace, sans-serif;
+    
+    /* MUDANÇA: Torna o footer fixo no fundo da tela, ocupando toda a largura, para permitir o blur sobre o conteúdo do site */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Garante que fique sobre o conteúdo */
+    box-sizing: border-box; /* Garante que o padding não cause problemas */
+  }
+  
+  .footer-content-container {
+    /* MUDANÇA: Conteúdo centralizado com largura máxima limitada para telas grandes */
+    max-width: 1200px; /* Largura máxima para centralização em telas amplas */
+    margin: 0 auto;
+    padding: 0 20px; /* Adicionado para evitar que o conteúdo cole nas laterais */
+  }
+  
+  .footer-colunas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-bottom: 30px;
+    /* MUDANÇA: Borda semi-transparente */
+    border-bottom: 1px solid rgba(60, 84, 110, 0.5); 
+    padding-bottom: 20px;
+  }
+  
+  .coluna-titulo {
+    color: #87ceeb; 
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .coluna-lista {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .coluna-link {
+    color: #c0c0c0;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+  }
+  
+  .coluna-link:hover {
+    color: #ffffff; 
+  }
+  
+  /* Redes Sociais */
+  .footer-social-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+  }
+  
+  .footer-social-links {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-icone-link {
+    color: #87ceeb; 
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .social-icone-link:hover {
+    color: #ffffff;
+    transform: scale(1.1); 
+  }
+  
+  .footer-copy p {
+    font-size: 0.8rem;
+  }
+  
+  /* 📱 Responsividade (Para dispositivos menores que 768px) */
+  @media (max-width: 768px) {
+    .footer-colunas {
+      grid-template-columns: 1fr; 
+      text-align: center;
+    }
+    
+    .footer-social-info {
+      flex-direction: column; 
+      gap: 20px;
+      text-align: center;
+    }
+  }
