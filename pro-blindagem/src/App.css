@@ -1,3 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.chivo-title {
+  font-family: "Chivo", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 2.7em !important;
+  text-align: left;
+  line-height: 1.3;
+  font-weight: 700;
+  font-style: normal;
+}
+.chivo-title-2 {
+  font-family: "Chivo", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 2.7em !important;
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 700;
+  font-style: normal;
+}
+.chivo-title-alt {
+  font-family: "Chivo", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1.6em !important;
+  text-align: left;
+  line-height: 1.3;
+  font-weight: 700;
+  font-style: normal;
+}
+.plus-jakarta-paragraph {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1.4em !important;
+  text-align: left;
+  line-height: 1.1;
+  font-weight: 700;
+  font-style: normal;
+  color: #fff;
+}
+.plus-jakarta-paragraph-alt {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1.2em !important;
+  letter-spacing: 2px !important;
+  text-align: left;
+  line-height: 1.1;
+  font-weight: 400;
+  font-style: normal;
+  color: #bfbfbf;
+  padding-top: 1.3em;
+}
+.plus-jakarta-paragraph-alt-2 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1em !important;
+  letter-spacing: 2px !important;
+  text-align: left;
+  line-height: 1.1;
+  font-weight: 400;
+  font-style: normal;
+  color: #bfbfbf;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -41,4 +104,22 @@
 
 .read-the-docs {
   color: #888;
+}
+
+@media (max-width: 780px) {
+  .chivo-title-2{
+    font-size: 1.9rem !important;
+  }
+  .chivo-title {
+    font-size: 1.9rem !important;
+  }
+  .plus-jakarta-paragraph {
+    font-size: 1rem !important;
+  }
+  .plus-jakarta-paragraph-alt {
+    padding-top: 1em;
+    font-size: 0.9rem !important;
+    line-height: 1.5;
+    font-weight: 300;
+  }
 }

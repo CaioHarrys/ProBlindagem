@@ -1,7 +1,7 @@
 .header {
     width: 100%;
     background-color: transparent;
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     z-index: 1000;
@@ -15,6 +15,7 @@
     padding: 0.8rem 1.2rem;
     position: relative;
     min-height: 100px;
+    margin-bottom: 1em !important;
 }
 
 .logo-container {
@@ -142,7 +143,7 @@
 /* responsivo */
 @media (max-width: 768px) {
     .header {
-        margin-bottom: 5vw;
+        /* margin-bottom: 5vw; */
         position: relative;
     }
 

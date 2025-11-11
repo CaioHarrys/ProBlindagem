@@ -11,6 +11,17 @@
     margin: 0em 0em 10em 0em;
     /* Centralizando a div */
 }
+.box-sec2 {
+    width: 100%;
+    height: auto !important;
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    padding: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 40px rgba(124, 56, 255, 0.06) inset;
+    transform: translateY(0);
+    transition: transform .6s cubic-bezier(.2, .9, .3, 1);
+    margin: 0;
+}
 
 /* CSS DOS CONTAINERS | PAI & FILHOS  */
 .container {
@@ -46,21 +57,15 @@
 }
 
 /* Texto */
-.hero-left-content h1 {
-    font-size: 3rem;
-    line-height: 1.2;
-    font-weight: 700;
-    color: white;
-    text-align: left;
-}
 
-.hero-left-content p {
+
+/* .hero-left-content p {
     font-size: 1rem;
     color: #c6bebe;
     text-align: left;
     line-height: 1.6;
     font-weight: 500;
-}
+} */
 
 .span-color {
     background: linear-gradient(to right, blue, lightblue);
@@ -280,7 +285,7 @@
 .Card-Title {
     display: flex;
     flex-direction: row;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 600;
     margin-bottom: 10px;
     gap: 5px;
@@ -294,7 +299,7 @@
 }
 
 .Card-Paragraph {
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #e81c1c;
     padding: 5px 0px 0px 20px;
@@ -365,18 +370,21 @@
         width: 250px !important;
     }
 
-    .hero-left-content h1 {
+    /* .hero-left-content h1 {
         font-size: 1.7rem !important;
         text-align: center;
     }
 
     .hero-left-content p {
         font-size: 0.9rem !important;
-    }
+    } */
 
     .Button-row {
         flex-direction: column;
         align-items: center;
+    }
+    .box-sec2 {
+        width: fit-content;
     }
 }
 
@@ -473,14 +481,14 @@ lanharriscameron */
     .blob {
         width: 250px !important;
     }
-
+/* 
     .hero-left-content h1 {
         font-size: 1.7rem !important;
     }
 
     .hero-left-content p {
         font-size: 0.9rem !important;
-    }
+    } */
 
 }
 

@@ -1,5 +1,6 @@
 import React from "react";
-import "../../assets/css/FirstSection.css"; 
+import "../../assets/css/FirstSection.css";
+import "../../../src/App.css"; 
 import Wpp from "../../assets/icon/whatsapp.png";
 import Diamante from "../../assets/icon/diamante.svg";
 import Raio from "../../assets/icon/raio.svg";
@@ -33,12 +34,12 @@ const FirstSection = () => {
       <div className="container">
         <div className="hero-left">
           <div className="hero-left-content">
-            <h1 className="Title">
+            <h1 className=" chivo-title">
               Blindagem invisivel para o seu{" "}
               <span className="span-color">celular</span>: Proteja seu
               dispositivo com estilo!
             </h1>
-            <p>
+            <p className="plus-jakarta-paragraph">
               Camada nanoquímica que sela e fortalece seu vidro. Menos trincas,
               menos stress, mais vida útil.
             </p>
@@ -61,10 +62,10 @@ const FirstSection = () => {
                         src={card.icon}
                         alt={`icone de ${card.title.toLowerCase()}`}
                       />
-                      <h2>{card.title}</h2>
+                      <h2 className="chivo-title-alt">{card.title}</h2>
                     </div>
                     <div className="Card-Paragraph">
-                      <p>{card.paragraph}</p>
+                      <p className="plus-jakarta-paragraph plus-jakarta-paragraph-alt-2">{card.paragraph}</p>
                     </div>
                   </div>
                   <div className={`blob blob-${card.id}`}></div>
