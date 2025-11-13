@@ -1,0 +1,101 @@
+/* Container for the entire component */
+.comparison-container {
+    background-color: #000000;
+    border-radius:40px;
+    position: relative;
+    /* Essential for absolute positioning of images and handle */
+    width: 300px;
+    /* Set a specific size for demonstration */
+    height: 610px;
+    overflow: hidden;
+    /* Important: ensures the foreground image is clipped */
+    cursor: ew-resize;
+    /* Indicates it's horizontally resizable */
+    /* border: 1px solid #ccc; */
+    /* Optional border */
+    -webkit-user-select: none;
+    /* Para navegadores baseados em WebKit (Chrome, Safari) */
+    -moz-user-select: none;
+    /* Para Firefox */
+    -ms-user-select: none;
+    /* Para Internet Explorer/Edge */
+    user-select: none;
+    /* Padrão para navegadores modernos */
+    margin-bottom: 16vw;
+}
+
+/* Base styles for both images */
+.comparison-image {
+    position: absolute;
+    /* Stack the images */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Images fill the container */
+    height: 100%;
+    object-fit: cover;
+    /* Ensures image covers the area without distortion */
+    pointer-events: none;
+    /* Prevents images from interfering with handle dragging */
+}
+
+/* Foreground Container (This is what we resize) */
+.foreground-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    /* Width is controlled by the inline style in JSX: style={{ width: `${sliderPosition}%` }} */
+    overflow: hidden;
+    /* Clips the foreground image content */
+}
+
+/* Foreground image must also be 100% of the *original* container's width,
+     even though its parent container is being clipped. This is key for alignment. */
+.foreground-image {
+    width: 300px;
+    /* IMPORTANT: Use the same fixed width as .comparison-container here!
+                       Or, use 'calc(100% / var(--aspect-ratio))' if calculating dynamically.
+                       For a simple setup, just match the width. */
+    height: 100%;
+}
+
+
+/* --- The Handle/Slider --- */
+
+.comparison-handle {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 10;
+    /* Ensures the handle is above the images */
+    transform: translateX(-50%);
+    /* Centers the handle on the 'left' percentage position */
+    cursor: ew-resize;
+    touch-action: none;
+    /* Prevents default mobile browser actions (like scrolling) while dragging */
+}
+
+.handle-line {
+    height: 50%;
+    width: 11px;
+    border-radius: 7px;
+    background-color: #1d39d8;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 25%;
+    left: 50%;
+
+}
+
+.handle-circle {
+    position: absolute;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+    width:10px;
+    height: 70px;
+    border-radius: 10px;
+    background-color: #1d39d8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
