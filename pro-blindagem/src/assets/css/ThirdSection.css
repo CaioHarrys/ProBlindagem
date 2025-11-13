@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    max-width: 1200px;
+    padding: 0px;
+    flex-wrap: wrap;
+    /* Ensure wrapping for smaller screens */
+    justify-content: center;
+    margin-bottom: 5vw;
+}

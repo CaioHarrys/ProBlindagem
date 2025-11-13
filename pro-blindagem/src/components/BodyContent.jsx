@@ -9,8 +9,8 @@ const BodyContent = () => {
     <div className="background">
       <FirstSection />
       <SecondSection />
-      <ImageComparisonSlider />
-      {/* <ThirdSection /> */}
+      {/* <ImageComparisonSlider /> */}
+      <ThirdSection />
     </div>
   );
 };
