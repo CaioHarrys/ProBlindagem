@@ -12,3 +12,31 @@
     text-align: center;
     margin-bottom: 100vw;
 }
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.left-side-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 50% !important;
+}
+
+.right-side {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.right-side-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
