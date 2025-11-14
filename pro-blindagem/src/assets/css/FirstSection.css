@@ -8,7 +8,7 @@
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 40px rgba(124, 56, 255, 0.06) inset;
     transform: translateY(0);
     transition: transform .6s cubic-bezier(.2, .9, .3, 1);
-    margin: 0em 0em 10em 0em;
+    margin: 0em 0em 0em 0em !important;
     /* Centralizando a div */
 }
 .box-sec2 {

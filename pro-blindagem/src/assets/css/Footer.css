@@ -7,7 +7,7 @@
     padding: 20px 40px;
     font-family: 'Space Mono', monospace, sans-serif;
 
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;

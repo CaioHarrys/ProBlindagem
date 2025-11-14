@@ -5,10 +5,21 @@ import "../../assets/css/ThirdSection.css";
 
 const ThirdSection = () => {
   return (
-    <div className='container'>
-      <ImageComparisonSlider />
-      {/* <ClientCard /> */}
-    </div>
+    <section className='third-section'>
+      <div className='container'>
+        <div className='left-side'>
+          <div className='left-side-content'>
+            <ImageComparisonSlider />
+          </div>
+        </div>
+        <div className='right-side'>
+          <div className='right-side-content'>
+            <h1>Conteudo</h1>
+          </div>
+        </div>
+      </div>
+
+    </section>
   )
 }
 
