@@ -7,7 +7,7 @@ import MagicBento from "../MagicBento";
 const ThirdSection = () => {
   return (
     <section className="third-section">
-      <div className="container">
+      <div className="container gap-20">
         <div className="left-side">
           <div className="left-side-content">
             <ImageComparisonSlider />

@@ -1,12 +1,12 @@
 /* Container for the entire component */
 .comparison-container {
     background-color: #000000;
-    border-radius:40px;
+    border-radius:31px;
     position: relative;
     /* Essential for absolute positioning of images and handle */
-    width: 300px;
+    width: 200px;
     /* Set a specific size for demonstration */
-    height: 610px;
+    height: 407px;
     overflow: hidden;
     /* Important: ensures the foreground image is clipped */
     cursor: ew-resize;
@@ -52,7 +52,7 @@
 /* Foreground image must also be 100% of the *original* container's width,
      even though its parent container is being clipped. This is key for alignment. */
 .foreground-image {
-    width: 300px;
+    width: 200px;
     /* IMPORTANT: Use the same fixed width as .comparison-container here!
                        Or, use 'calc(100% / var(--aspect-ratio))' if calculating dynamically.
                        For a simple setup, just match the width. */
@@ -76,25 +76,25 @@
 }
 
 .handle-line {
-    height: 50%;
+    height: 100%;
     width: 11px;
-    border-radius: 7px;
+    border-radius: 0px;
     background-color: #1d39d8;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     position: absolute;
-    top: 25%;
-    left: 50%;
+    /* top: 25%; */
+    left: -6px;
 
 }
 
 .handle-circle {
     position: absolute;
     top: 50%;
-
+    right: -25px;
     transform: translate(-50%, -50%);
-    width:10px;
-    height: 70px;
-    border-radius: 10px;
+    width:25px;
+    height: 55px;
+    border-radius: 10%;
     background-color: #1d39d8;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 }

@@ -40,3 +40,39 @@
     flex-direction: column;
     width: 100%;
 }
+
+/* Responsividade Tablet | Mobile */
+@media (max-width: 768px) {
+    .third-section {
+        margin-bottom: 150vw;
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .gap-20 {
+        gap: 2rem;
+    }
+
+    /* .left-side-content,
+    .right-side-content {
+        width: 90%;
+    } */
+}
+
+@media (max-width: 480px) {
+    .third-section {
+        margin-bottom: 100%;
+    }
+
+    .left-side,
+    .right-side {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+}
