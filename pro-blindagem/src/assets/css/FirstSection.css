@@ -12,7 +12,7 @@
     /* Centralizando a div */
 }
 .box-sec2 {
-    width: 100%;
+    /* width: 100%; */
     height: auto !important;
     border-radius: 24px;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));

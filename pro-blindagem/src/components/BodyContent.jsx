@@ -8,7 +8,7 @@ const BodyContent = () => {
     <div className="background">
       <FirstSection />
       <SecondSection />
-      <ThirdSection />
+      {/* <ThirdSection /> */}
     </div>
   );
 };

@@ -3,9 +3,9 @@ import { FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa"; // Exempl
 import "../assets/css/Footer.css";
 
 const REDES_SOCIAIS = [
-  { icone: FaTwitter, url: "https://twitter.com/seuusuario" },
-  { icone: FaInstagram, url: "https://instagram.com/seuusuario" },
-  { icone: FaLinkedinIn, url: "https://linkedin.com/in/seuusuario" },
+  // { icone: FaTwitter, url: "https://twitter.com/seuusuario" },
+  { icone: FaInstagram, url: "https://www.instagram.com/problindagens?igsh=eWMxYXJ6b281ZWRk" },
+  // { icone: FaLinkedinIn, url: "https://linkedin.com/in/seuusuario" },
 ];
 
 const FooterEspacial = () => {

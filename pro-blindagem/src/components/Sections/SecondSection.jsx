@@ -5,6 +5,7 @@ import "../../assets/css/SecondSection.css";
 import "../../App.css";
 import SaibaCards from "../SaibaCards";
 import Layers from "../../assets/imagens/Iphones/layers.png";
+import ImageComparisonSlider from "../ImageComparisonSlider";
 
 const SecondSection = () => {
   return (
@@ -25,9 +26,9 @@ const SecondSection = () => {
             </div>
           </div>
           <SaibaCards />
-          <div className="phone-box-2">
-            <img className="img-layer" src={Layers} alt="" />
-          </div>
+          {/* <div className="phone-box-2">
+            <ImageComparisonSlider />
+          </div> */}
         </div>
       </div>
     </section>

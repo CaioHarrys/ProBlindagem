@@ -1,14 +1,41 @@
+.container-2 {
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10vh;
+    margin-top: 5vw;
+
+}
+
+.Saiba-mais-cards-container {
+    width: 72%;
+    display: flex;
+    justify-content: space-evenly   ;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0rem;
+    flex-direction: row;
+    
+    border-radius: 24px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7), 0 0 40px rgba(124, 56, 255, 0.06) inset;
+    transform: translateY(0);
+    transition: transform .6s cubic-bezier(.2, .9, .3, 1);
+}
+
 /* From Uiverse.io by Fcodingx */
 .card {
     width: 33% !important;
-    padding: 0.5rem;
-    margin-top: 5vw;
+    padding: 2rem;
+    margin-top: 0vw;
     background: linear-gradient(145deg, #1750ad38, #0a142b00);
-    border-radius: 8px;
+    border-radius: 24px;
     backdrop-filter: blur(500px);
     border-bottom: 2.5px solid rgba(51, 0, 255, 0.613);
     border-left: 2.5px rgba(51, 0, 255, 0.565) outset;
-    max-height: 130px;
+    max-height: fit-content;
     /* transition: max-height 0.5s ease, padding 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; */
     overflow: hidden;
     color: #d0d1d3;
@@ -25,17 +52,17 @@
 }
 
 .align {
-    padding: 1rem;
+    padding: 0.5rem;
     display: flex;
     flex-direction: row;
-    gap: 5px;
     align-self: flex-start;
 }
 
 .card h1 {
-    font-size: 20px;
+    font-size: 1.2rem;
     text-align: left;
     margin: 0rem;
+    padding-top: 0.5rem;
     margin-left: 4px !important;
     color: rgb(218, 244, 237);
     /* text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573); */
@@ -77,49 +104,59 @@
     padding: 0.5rem 0;
 }
 
-.Saiba-mais-cards-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
+
 
 .card-icon {
-    width: 40px;
+    width: 44px;
 }
 
 @media (hover: hover) {
     .card:not(.expanded):hover {
-        box-shadow: 0px 0px 44px -32px #2C1DFF,0px 10px 32px -3px #1C3FFD;
+        box-shadow: 0px 0px 44px -32px #2C1DFF, 0px 10px 32px -3px #1C3FFD;
     }
 }
 
 @media screen and (max-width: 768px) {
     .Saiba-mais-cards-container {
-        flex-direction: row;
-        gap: 1.5rem;
-        flex-wrap: wrap;
+        margin-top: 10vw;
+        width: 90%;
+        gap: 0 !important;
+        height: fit-content;
     }
 
     .card {
-        width: 100% !important;
-        max-height: 106px;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        width: 50% !important;
+        height: fit-content;
         /* Altura inicial compacta no mobile */
     }
 
     /* Expansão suave no mobile */
     .card.expanded {
-        max-height: fit-content;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        width: 60% !important;
+        height: fit-content !important;
+
         /* Expande o suficiente pra descrição (ajuste se preciso) */
     }
 
     .card-icon {
-        width: 40px;
+        width: 33px;
     }
 
     .card h1 {
         padding: 0;
         margin: 0;
+        font-size: 1rem;
+    }
+    .card p {
+        font-size: 15px;
+    }
+    .container-2 {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20vh;
     }
 }
