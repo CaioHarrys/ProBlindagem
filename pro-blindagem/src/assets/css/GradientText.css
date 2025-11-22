@@ -13,9 +13,9 @@
     transition: box-shadow 0.5s ease-out;
     overflow: hidden;
     cursor: pointer;
-  }
-  
-  .gradient-overlay {
+}
+
+.gradient-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -26,9 +26,9 @@
     border-radius: inherit;
     z-index: 0;
     pointer-events: none;
-  }
-  
-  .gradient-overlay::before {
+}
+
+.gradient-overlay::before {
     content: '';
     position: absolute;
     left: 0;
@@ -41,23 +41,23 @@
     transform: translate(-50%, -50%);
     background-color: #060010;
     z-index: -1;
-  }
-  
-  @keyframes gradient {
+}
+
+@keyframes gradient {
     0% {
-      background-position: 0% 50%;
+        background-position: 0% 50%;
     }
-  
+
     50% {
-      background-position: 100% 50%;
+        background-position: 100% 50%;
     }
-  
+
     100% {
-      background-position: 0% 50%;
+        background-position: 0% 50%;
     }
-  }
-  
-  .text-content {
+}
+
+.text-content {
     display: inline-block;
     position: relative;
     z-index: 2;
@@ -66,5 +66,4 @@
     -webkit-background-clip: text;
     color: transparent;
     animation: gradient linear infinite;
-  }
-  
+}

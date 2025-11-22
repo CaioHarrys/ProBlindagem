@@ -33,7 +33,7 @@ const SecondSection = () => {
                 showBorder={false}
                 className="custom-class"
               >
-                Como Funciona?
+                Saiba Mais
               </GradientText>
               <p className="plus-jakarta-paragraph-alt">
                 Nosso processo de blindagem invisível utiliza tecnologia de
