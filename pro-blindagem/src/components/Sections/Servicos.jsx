@@ -2,10 +2,10 @@ import "../../assets/css/FirstSection.css";
 import "../../assets/css/BodyContent.css";
 import "../../assets/css/SecondSection.css";
 import "../../App.css";
-import SaibaCards from "../SaibaCards";
 import ContentBox from "../ContentBox";
+import ProductCard from "../ProductCard";
 
-const SecondSection = () => {
+const Servicos = () => {
   return (
     <section className="second-section">
       <div className="container">
@@ -13,8 +13,8 @@ const SecondSection = () => {
           <div className="hero-2-content">
             <div className="box-sec2">
               <ContentBox
-                title="Como Funciona?"
-                paragraph="Nosso processo de blindagem invisível utiliza tecnologia de ponta em nanoquímica para criar uma camada protetora ultrafina sobre o vidro do seu celular. Aplicado por profissionais especializados, esse revestimento fortalece a superfície do vidro, aumentando sua resistência contra impactos e riscos sem comprometer a aparência ou a sensibilidade da tela."
+                title="Serviços"
+                paragraph="Oferecemos blindagem invisível para uma ampla variedade de dispositivos, incluindo smartphones, tablets e smartwatches. Nosso serviço é compatível com todas as principais marcas e modelos, garantindo proteção eficaz sem comprometer a funcionalidade ou o design do seu dispositivo."
                 titleColors={[
                   "#0339A6",
                   "#A630D9",
@@ -30,10 +30,10 @@ const SecondSection = () => {
               />
             </div>
           </div>
-          <SaibaCards />
+          aqui
         </div>
       </div>
     </section>
   );
 };
-export default SecondSection;
+export default Servicos;

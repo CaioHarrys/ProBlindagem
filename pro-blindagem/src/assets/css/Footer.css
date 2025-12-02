@@ -1,5 +1,5 @@
 .footer-espacial {
-    background-color: rgba(13, 26, 38, 0.7);
+    /* background-color: rgba(13, 26, 38, 0.7); */
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 
@@ -7,7 +7,7 @@
     padding: 20px 40px;
     font-family: 'Space Mono', monospace, sans-serif;
 
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -15,11 +15,12 @@
     box-sizing: border-box;
 }
 
+
 .footer-content-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    
+
 }
 
 .footer-colunas {

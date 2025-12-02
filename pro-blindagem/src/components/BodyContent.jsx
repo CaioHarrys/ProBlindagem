@@ -1,14 +1,13 @@
-import React from "react";
 import FirstSection from "./Sections/FirstSection";
 import SecondSection from "./Sections/SecondSection";
-import ThirdSection from "./Sections/ThirdSection";
+import Servicos from "./Sections/Servicos";
 
 const BodyContent = () => {
   return (
     <div className="background">
       <FirstSection />
       <SecondSection />
-      {/* <ThirdSection /> */}
+      <Servicos />
     </div>
   );
 };
