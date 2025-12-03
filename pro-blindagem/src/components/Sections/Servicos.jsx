@@ -4,6 +4,7 @@ import "../../assets/css/SecondSection.css";
 import "../../App.css";
 import ContentBox from "../ContentBox";
 import ProductCard from "../ProductCard";
+import ReceitaCardRow from "../ReceitaCardRow";
 
 const Servicos = () => {
   return (
@@ -29,8 +30,8 @@ const Servicos = () => {
                 ]}
               />
             </div>
-          </div>
-          aqui
+          </div> 
+          <ReceitaCardRow />
         </div>
       </div>
     </section>
