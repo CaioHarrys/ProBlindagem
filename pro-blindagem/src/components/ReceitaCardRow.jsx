@@ -7,8 +7,9 @@ import phone from "../assets/imagens/Iphones/CardsServices/iphone-product.png";
 import phone2 from "../assets/imagens/Iphones/CardsServices/applewatch.jpg";
 import phone3 from "../assets/imagens/Iphones/CardsServices/newph.jpg";
 import phone4 from "../assets/imagens/Iphones/CardsServices/iphoneModel.png";
-import neon from "../assets/imagens/Iphones/CardsServices/neoN.png";
-import watches from "../assets/imagens/Iphones/com fundo/watchimg.png";
+import neon from "../assets/imagens/Iphones/com fundo/iphones1.jpg";
+import watches from "../assets/imagens/Iphones/com fundo/watches3.jpg";
+import watches2 from "../assets/imagens/Iphones/com fundo/pack.jpg";
 import logo from "../assets/logo/LogoSemFundo.png";
 
 const Card = ({ image, title, price, description }) => {
@@ -90,7 +91,7 @@ const Card = ({ image, title, price, description }) => {
               {description && (
                 <p className="receita-card-footer">{description}</p>
               )}
-              <p>{price}</p>
+              <p className="pricetag">{price}</p>
               <SparkleButton children="Saiba Mais" />
             </div>
           </div>
@@ -115,7 +116,7 @@ const ReceitaCardRow = () => {
       description: "Blindagem espesial para seus relogios inteligentes - Smartwatches",
     },
     {
-      image: phone3,
+      image: watches2,
       title: "Blindagem Máxima",
       price: "300$",
       description: "A mesma blindagem, agora apenas duas por uma!",
