@@ -3,10 +3,6 @@
 import React from "react";
 import "../assets/css/ReceitaCardRow.css";
 import SparkleButton from "./SparkleButton";
-import phone from "../assets/imagens/Iphones/CardsServices/iphone-product.png";
-import phone2 from "../assets/imagens/Iphones/CardsServices/applewatch.jpg";
-import phone3 from "../assets/imagens/Iphones/CardsServices/newph.jpg";
-import phone4 from "../assets/imagens/Iphones/CardsServices/iphoneModel.png";
 import neon from "../assets/imagens/Iphones/com fundo/iphones1.jpg";
 import watches from "../assets/imagens/Iphones/com fundo/watches3.jpg";
 import watches2 from "../assets/imagens/Iphones/com fundo/pack.jpg";
