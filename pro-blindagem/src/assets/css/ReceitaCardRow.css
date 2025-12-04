@@ -40,6 +40,7 @@
     overflow: hidden;
 }
 
+
 .receita-back {
     width: 100%;
     height: 100%;
@@ -64,7 +65,8 @@
     position: absolute;
     width: 98.8%;
     height: 98.8%;
-    background-color: #09042f;   /* <--- Cor Da Capa do Card*/
+    background-color: #09042f;
+    /* <--- Cor Da Capa do Card*/
     border-radius: 5.5px;
     color: white;
     display: flex;
@@ -72,6 +74,14 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
+}
+
+.receita-back-content strong {
+    font-size: 18px;
+    text-align: center;
+    display: block;
+    position: relative;
+    top: 22% !important;
 }
 
 /* Ação de Hover (Virar o card) */
@@ -144,9 +154,19 @@
 }
 
 .receita-card-footer {
+    display: flex;
+    position: relative;
     color: #ffffff88;
     margin-top: 0px;
     font-size: 16px;
+}
+
+.receita-back-content strong {
+    top: 20% !important;
+    position: relative;
+    font-weight: 500;
+    font-size: 1.3em;
+    color: whitesmoke;
 }
 
 .receita-front .receita-img {
@@ -207,4 +227,3 @@
         margin-top: 2em;
     }
 }
-
