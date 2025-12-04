@@ -388,6 +388,7 @@
     }
     .box-sec2 {
         width: fit-content;
+        margin-bottom: 5vh;
     }
 }
 
